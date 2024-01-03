@@ -1,5 +1,5 @@
-import bcrypt from "bcryptjs";
 import db from "../models/index";
+import bcrypt from "bcryptjs";
 
 let handleUserLogin = (email, password) => {
   return new Promise(async (resolve, reject) => {
@@ -8,6 +8,7 @@ let handleUserLogin = (email, password) => {
       let isExist = await checkUserEmail(email);
       if (isExist) {
         //user already exist
+
         let user = await db.User.findOne({
           attributes: ["email", "roleId", "password"],
           where: { email: email },
@@ -19,7 +20,7 @@ let handleUserLogin = (email, password) => {
           if (check) {
             userData.errCode = 0;
             userData.errMessage = "Okie nhe";
-            console.log(user);
+
             delete user.password;
             userData.user = user;
           } else {
