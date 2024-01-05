@@ -100,7 +100,7 @@ class Login extends Component {
                   }}
                 >
                   <i
-                    class={
+                    className={
                       this.state.isShowPassword
                         ? "far fa-eye"
                         : "far fa-eye-slash"
@@ -110,7 +110,7 @@ class Login extends Component {
               </div>
             </div>
 
-            <div class="col-12" style={{ color: "red" }}>
+            <div className="col-12" style={{ color: "red" }}>
               {this.state.errMessage}
             </div>
 
@@ -136,7 +136,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
