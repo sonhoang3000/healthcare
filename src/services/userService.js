@@ -1,9 +1,8 @@
 import db from "../models/index";
 import bcrypt from "bcryptjs";
-import { resolve } from "path";
-
 
 const salt = bcrypt.genSaltSync(10);
+
 
 let hashUserPassword = (password) => {
 	return new Promise(async (resolve, reject) => {
