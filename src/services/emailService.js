@@ -24,7 +24,7 @@ let sendSimpleEmail = async (dataSend) => {
 }
 
 let getBodyHTMLEmail = (dataSend) => {
-	let result = ' '
+	let result = '';
 	if (dataSend.language === 'vi') {
 		result =
 			`
@@ -64,6 +64,7 @@ let getBodyHTMLEmail = (dataSend) => {
 		<div>Sincerely thank </div>
 		`
 	}
+	return result;
 }
 
 module.exports = {
