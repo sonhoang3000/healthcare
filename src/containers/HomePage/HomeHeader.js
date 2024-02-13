@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import "./HomeHeader.scss";
 import logo from "../../assets/logo-1.svg";
 import { FormattedMessage } from "react-intl";
-import { LANGUAGES } from "../../utils";
 import { withRouter } from 'react-router';
 
 import { changeLanguageApp } from "../../store/actions"
@@ -21,7 +20,6 @@ class HomeHeader extends Component {
 	}
 
 	render() {
-		let language = this.props.language;
 		return (
 			<React.Fragment>
 				<div className="home-header-container">

@@ -47,7 +47,6 @@ export const fetchPositionFailed = () => ({
 	type: actionTypes.FETCH_POSITION_FAILED,
 })
 
-
 export const fetchRoleSuccess = (roleData) => ({
 	type: actionTypes.FETCH_ROLE_SUCCESS,
 	data: roleData
@@ -73,7 +72,6 @@ export const fetchPositionStart = () => {
 	}
 
 }
-
 
 export const fetchRoleStart = () => {
 	return async (dispatch, getState) => {
@@ -118,7 +116,6 @@ export const saveUserFailed = () => ({
 	type: actionTypes.CREATE_USER_FAILED
 })
 
-
 export const fetchAllUsersStart = () => {
 	return async (dispatch, getState) => {
 		try {
@@ -145,7 +142,6 @@ export const fetchAllUsersSuccess = (data) => ({
 export const fetchAllUsersFailed = () => ({
 	type: actionTypes.FETCH_ALL_USERS_FAILED,
 })
-
 
 export const deleteAUser = (userId) => {
 	return async (dispatch, getState) => {
@@ -174,7 +170,6 @@ export const deleteUserSuccess = () => ({
 export const deleteUserFailed = () => ({
 	type: actionTypes.DELETE_USER_FAILED
 })
-
 
 export const editAUser = (data) => {
 	return async (dispatch, getState) => {
@@ -301,7 +296,6 @@ export const fetchAllScheduleTime = () => {
 		}
 	}
 }
-
 
 export const getRequiredDoctorInfor = () => {
 	return async (dispatch, getState) => {

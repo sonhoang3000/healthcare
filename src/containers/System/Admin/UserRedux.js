@@ -206,7 +206,7 @@ class UserRedux extends Component {
 
         let {
             email, password, firstName, lastName, phoneNumber,
-            address, gender, position, role, avatar
+            address, gender, position, role
         } = this.state;
 
 

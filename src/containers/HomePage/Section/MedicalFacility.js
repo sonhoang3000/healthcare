@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './MedicalFacility.scss';
-import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
 import { getAllClinic } from '../../../services/userService';
 import { withRouter } from 'react-router';
@@ -37,7 +36,7 @@ class MedicalFacility extends Component {
 				<div className="section-container">
 					<div className="section-header">
 						<span className="title-section">Cơ sở y tế</span>
-						<button className="btn-section">xem thêm</button>
+						<button className="btn-section">Xem thêm</button>
 					</div>
 
 					<div className="section-body">

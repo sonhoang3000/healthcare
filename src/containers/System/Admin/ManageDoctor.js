@@ -56,7 +56,7 @@ class ManageDoctor extends Component {
 		let { language } = this.props
 		if (inputData && inputData.length > 0) {
 			if (type === 'USERS') {
-				inputData.map((item, index) => {
+				inputData.forEach((item, index) => {
 					let object = {};
 					let labelVi = `${item.lastName} ${item.firstName}`;
 					let labelEn = `${item.firstName} ${item.lastName}`;
@@ -66,7 +66,7 @@ class ManageDoctor extends Component {
 				})
 			}
 			if (type === 'PRICE') {
-				inputData.map((item, index) => {
+				inputData.forEach((item, index) => {
 					let object = {};
 					let labelVi = `${item.valueVi} `;
 					let labelEn = `${item.valueEn} USD`;
@@ -76,7 +76,7 @@ class ManageDoctor extends Component {
 				})
 			}
 			if (type === 'PAYMENT' || type === 'PROVINCE') {
-				inputData.map((item, index) => {
+				inputData.forEach((item, index) => {
 					let object = {};
 					let labelVi = `${item.valueVi} `;
 					let labelEn = `${item.valueEn} `;
@@ -87,7 +87,7 @@ class ManageDoctor extends Component {
 			}
 
 			if (type === "SPECIALTY") {
-				inputData.map((item, index) => {
+				inputData.forEach((item, index) => {
 					let object = {};
 					object.label = item.name;
 					object.value = item.id;
@@ -96,7 +96,7 @@ class ManageDoctor extends Component {
 			}
 
 			if (type === "CLINIC") {
-				inputData.map((item, index) => {
+				inputData.forEach((item, index) => {
 					let object = {};
 					object.label = item.name;
 					object.value = item.id;

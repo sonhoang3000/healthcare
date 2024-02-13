@@ -4,7 +4,7 @@ import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
 import { adminMenu, doctorMenu } from './menuApp';
 import './Header.scss';
-import { LANGUAGES, USER_ROLE } from "../../utils";
+import { USER_ROLE } from "../../utils";
 import { FormattedMessage } from "react-intl";
 import _ from 'lodash';
 
@@ -40,7 +40,7 @@ class Header extends Component {
 
 
     render() {
-        const { processLogout, language, userInfo } = this.props;
+        const { processLogout, userInfo } = this.props;
 
         return (
             <div className="header-container">
