@@ -54,14 +54,14 @@ class Header extends Component {
                         <FormattedMessage id="home-header.welcome" />
                         {userInfo && userInfo.firstName ? userInfo.firstName : ''}
                     </span>
-                    <span
+                    {/* <span
                         className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}
                         onClick={() => this.handleChangeLanguage(LANGUAGES.VI)}>VN
-                    </span>
-                    <span
+                    </span> */}
+                    {/* <span
                         className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}
                         onClick={() => this.handleChangeLanguage(LANGUAGES.EN)}>EN
-                    </span>
+                    </span> */}
                     {/* nút logout */}
                     <div className="btn btn-logout" onClick={processLogout} title="Log out" >
                         <i className="fas fa-sign-out-alt"></i>

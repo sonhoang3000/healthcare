@@ -213,7 +213,7 @@ class UserRedux extends Component {
         return (
             <div className='user-redux-container'>
                 <div className='title'>
-                    Learn React-Redux "hoi dan IT yb channel123123123123"
+                    Thêm thành viên mới
                 </div>
                 <div className="user-redux-body" style={{ margin: "0 120px" }}>
                     <div className="container">

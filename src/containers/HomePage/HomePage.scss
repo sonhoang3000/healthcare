@@ -40,6 +40,7 @@
 .section-share {
 	&.section-specialty {
 		background: #f5f5f5;
+		background-image: url("../../assets/outstanding-doctor/background-outstanding-doctor.png");
 	}
 
 	&.section-outstanding-doctor {
@@ -48,10 +49,8 @@
 
 	&.section-about {
 		height: 500px !important;
-		border-top: 1px solid blue;
-		border-bottom: 1px solid red;
-		// border-bottom: 1px solid #f5f5f5;
-		// border-top: 1px solid #f5f5f5;
+
+
 
 	}
 
@@ -64,6 +63,7 @@
 				background-repeat: no-repeat;
 				background-size: cover;
 				background-color: #eee;
+				margin: 0 10px;
 
 				&.section-specialty {
 					// background-image: url("../../assets/specialty/co-xuong-khop.png");
@@ -76,7 +76,7 @@
 				}
 
 				&.section-outstanding-doctor {
-					// background-image: url("../../assets//outstanding-doctor/anh-dai-dien-bs.jpeg");
+					background-image: url("../../assets//outstanding-doctor/anh-dai-dien-bs.jpeg");
 					width: 120px;
 					height: 120px;
 					border-radius: 50%;
@@ -159,10 +159,57 @@
 		text-decoration: unset;
 	}
 
+	.intro-footer {
+		height: 350px;
+		border: 1px solid red;
+		display: flex;
+		width: 100%;
+		background-color: rgb(239, 239, 239) !important;
+		padding: 0 10px;
+
+		.content-left {
+			width: 40%;
+		}
+
+		.content-middle {
+			height: 100%;
+			width: 20%;
+			justify-content: flex-start !important;
+			align-items: flex-start !important;
+
+			.img-middle {
+				display: block;
+				background-image: url('../../assets/logo-1.svg');
+				width: 140px;
+				height: 50px;
+				background-repeat: no-repeat;
+				justify-content: flex-start !important;
+				background-position: center;
+				align-items: flex-start !important;
+			}
+
+			.middle-content {
+				justify-content: flex-start !important;
+				align-items: flex-start !important;
+
+				.content-of-mid {
+					justify-content: flex-start !important;
+
+					align-items: flex-start !important;
+				}
+			}
+		}
+
+		.content-right {
+			width: 40%;
+
+		}
+	}
 
 }
 
 .section-about {
+	background-image: url('../../assets/background-previous-footer.png');
 	padding: 0 100px;
 
 	.section-about-header {
@@ -188,6 +235,54 @@
 				font-style: italic;
 				padding: 15px;
 			}
+
+			.right-about {
+				display: flex;
+				flex-flow: wrap;
+				justify-content: space-between;
+				/* Adjust as needed */
+
+				.img-about {
+					height: 65px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: rgb(255, 255, 255);
+					border-radius: 10px;
+					width: calc(50% - 20px);
+					margin: 10px 10px;
+					width: 225px;
+
+					.img-1,
+					.img-2,
+					.img-3,
+					.img-4 {
+						background-size: cover;
+						background-repeat: no-repeat;
+						background-position: center;
+						height: 40px;
+						width: 165px;
+					}
+
+					.img-1 {
+						background-image: url('../../assets/img-footer/ictnews.png');
+					}
+
+					.img-2 {
+						background-image: url('../../assets/img-footer/thong-tin-bo-y-te.png');
+					}
+
+					.img-3 {
+						background-image: url('../../assets/img-footer/vtcnewslogo.png');
+					}
+
+					.img-4 {
+						background-image: url('../../assets/img-footer/vtv1.png');
+					}
+				}
+			}
+
+
 		}
 	}
 }
