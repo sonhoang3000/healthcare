@@ -17,26 +17,26 @@ class HomeFooter extends Component {
 						</div>
 						<div className='content-body-left'>
 							<div className="inside-body-left">
-								<i class="fa-solid fa-location-dot"></i>
+								<i className="fa-solid fa-location-dot"></i>
 								Lô B4/D21, Khu đô thị mới Cầu Giấy, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Thành phố Hà Nội, Việt Nam
 							</div>
 						</div >
 						<div className='content-body-left'>
 							<div className="inside-body-left">
-								<i class="fa-solid fa-check"></i>
+								<i className="fa-solid fa-check"></i>
 								ĐKKD số. 0106790291. Sở KHĐT Hà Nội cấp ngày 16/03/2015
 							</div>
 
 						</div>
 						<div className='content-body-left'>
 							<div className="inside-body-left">
-								<i class="fa-solid fa-phone-volume"></i>
+								<i className="fa-solid fa-phone-volume"></i>
 								<a href="/#"> 024-7301-2468 </a>(7h - 18h)
 							</div>
 						</div>
 						<div className='content-body-left'>
 							<div className="inside-body-left">
-								<i class="fa-solid fa-envelopes-bulk"></i>
+								<i className="fa-solid fa-envelopes-bulk"></i>
 								support@bookingcare.vn (7h - 18h)
 							</div>
 						</div>
@@ -47,7 +47,7 @@ class HomeFooter extends Component {
 						</div>
 						<div className='content-body-left'>
 							<div className="inside-body-left">
-								<i class="fa-solid fa-location-dot"></i>
+								<i className="fa-solid fa-location-dot"></i>
 								Số 01, Hồ Bá Kiện, Phường 15, Quận 10
 							</div>
 						</div>

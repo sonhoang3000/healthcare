@@ -33,7 +33,7 @@ const appReducer = (state = initialState, action) => {
             }
 
         case actionTypes.CHANGE_LANGUAGE:
-            console.log("hoidanit CHANGE_LANGUAGE", action)
+            console.log("CHANGE_LANGUAGE", action)
             return {
                 ...state,
                 language: action.language,

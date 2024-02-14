@@ -11,7 +11,7 @@ class About extends Component {
 				</div>
 				<div className='section-about-content'>
 					<div className='content-left'>
-						<iframe width="650" height="400" src="https://www.youtube.com/embed/FyDQljKtWnI?si=iEF6LPnnISaK8pHy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>					</div>
+						<iframe width="650" height="400" src="https://www.youtube.com/embed/FyDQljKtWnI?si=iEF6LPnnISaK8pHy" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe></div>
 					<div className='content-right'>
 						<div className='right-about'>
 							<div className='img-about'>
