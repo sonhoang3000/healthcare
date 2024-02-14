@@ -1,5 +1,5 @@
 {
-  "name": "nodejs",
+  "name": "bookingcare",
   "version": "1.0.0",
   "description": "backend nodejs",
   "main": "server.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec ./node_modules/.bin/babel-node src/server.js"
   },
-  "author": "HoidanIT Sonhoang",
+  "author": "Sonhoang",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
