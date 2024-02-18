@@ -91,7 +91,7 @@ class ModalUser extends Component {
 				toggle={() => { this.toggle() }}
 				size="lg"
 			>
-				<ModalHeader toggle={() => { this.toggle() }}>Create a new user </ModalHeader>
+				<ModalHeader toggle={() => { this.toggle() }}>Tạo mới người dùng </ModalHeader>
 				<ModalBody>
 					<div className='modal-user-body'>
 						<div className='input-container'>
@@ -103,7 +103,7 @@ class ModalUser extends Component {
 							/>
 						</div>
 						<div className='input-container'>
-							<label>Password</label>
+							<label>Mật khẩu</label>
 							<input
 								type="password"
 								onChange={(event) => { this.handleOnChangeInput(event, "password") }}
@@ -111,7 +111,7 @@ class ModalUser extends Component {
 							/>
 						</div>
 						<div className='input-container'>
-							<label>First name</label>
+							<label>Tên</label>
 							<input
 								type="text"
 								onChange={(event) => { this.handleOnChangeInput(event, "firstName") }}
@@ -119,7 +119,7 @@ class ModalUser extends Component {
 							/>
 						</div>
 						<div className='input-container'>
-							<label>Last name</label>
+							<label>Họ</label>
 							<input
 								type="text"
 								onChange={(event) => { this.handleOnChangeInput(event, "lastName") }}
@@ -127,7 +127,7 @@ class ModalUser extends Component {
 							/>
 						</div>
 						<div className='input-container max-width-input'>
-							<label>Address</label>
+							<label>Địa chỉ</label>
 							<input
 								type="text"
 								onChange={(event) => { this.handleOnChangeInput(event, "address") }}
@@ -140,9 +140,11 @@ class ModalUser extends Component {
 				</ModalBody>
 				<ModalFooter>
 					<Button className='px-3' color="primary" onClick={() => { this.handleAddNewUser() }}>
-						Add New
+						Thêm mới
 					</Button>{" "}
-					<Button className='px-3' color="secondary" onClick={() => { this.toggle() }}> Close </Button>
+					<Button className='px-3' color="secondary" onClick={() => { this.toggle() }}>
+						Đóng
+					</Button>
 				</ModalFooter>
 			</Modal>
 		)

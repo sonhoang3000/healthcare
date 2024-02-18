@@ -76,7 +76,7 @@ class ModalEditUser extends Component {
 				toggle={() => { this.toggle() }}
 				size="lg"
 			>
-				<ModalHeader toggle={() => { this.toggle() }}>Edit a new user </ModalHeader>
+				<ModalHeader toggle={() => { this.toggle() }}>Sửa thông tin người dùng</ModalHeader>
 				<ModalBody>
 					<div className='modal-user-body'>
 						<div className='input-container'>
@@ -89,7 +89,7 @@ class ModalEditUser extends Component {
 							/>
 						</div>
 						<div className='input-container'>
-							<label>Password</label>
+							<label>Mật khẩu</label>
 							<input
 								type="password"
 								onChange={(event) => { this.handleOnChangeInput(event, "password") }}
@@ -98,7 +98,7 @@ class ModalEditUser extends Component {
 							/>
 						</div>
 						<div className='input-container'>
-							<label>First name</label>
+							<label>Tên</label>
 							<input
 								type="text"
 								onChange={(event) => { this.handleOnChangeInput(event, "firstName") }}
@@ -106,7 +106,7 @@ class ModalEditUser extends Component {
 							/>
 						</div>
 						<div className='input-container'>
-							<label>Last name</label>
+							<label>Họ</label>
 							<input
 								type="text"
 								onChange={(event) => { this.handleOnChangeInput(event, "lastName") }}
@@ -114,7 +114,7 @@ class ModalEditUser extends Component {
 							/>
 						</div>
 						<div className='input-container max-width-input'>
-							<label>Address</label>
+							<label>Địa chỉ</label>
 							<input
 								type="text"
 								onChange={(event) => { this.handleOnChangeInput(event, "address") }}

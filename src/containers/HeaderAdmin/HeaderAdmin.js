@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
 import { adminMenu, doctorMenu } from './menuApp';
-import './Header.scss';
+import './HeaderAdmin.scss';
 import { USER_ROLE } from "../../utils";
 import { FormattedMessage } from "react-intl";
 import _ from 'lodash';
 
-class Header extends Component {
+class HeaderAdmin extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -90,4 +90,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderAdmin);

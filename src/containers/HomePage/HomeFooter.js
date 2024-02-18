@@ -54,6 +54,7 @@ class HomeFooter extends Component {
 					</div>
 					<div className='content-middle'>
 						<div className='img-middle'>
+
 						</div>
 						<div className='mid'>
 							<ul>

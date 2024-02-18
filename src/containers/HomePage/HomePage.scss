@@ -82,9 +82,9 @@
 				}
 
 				&.section-handbook {
-					width: 270px;
-					height: 140px;
-					background-image: url("../../assets//handbook/hangbook.png");
+					// width: 270px;
+					// height: 140px;
+					// background-image: url("../../assets//handbook/hangbook.png");
 				}
 			}
 		}
@@ -207,6 +207,7 @@
 				background-position: center;
 				margin-left: 40px;
 				margin-bottom: -16px;
+				cursor: pointer;
 			}
 
 			.mid {
@@ -383,6 +384,7 @@
 					width: calc(50% - 20px);
 					margin: 10px 10px;
 					width: 225px;
+					cursor: pointer;
 
 					.img-1,
 					.img-2,
@@ -393,6 +395,7 @@
 						background-position: center;
 						height: 40px;
 						width: 165px;
+
 					}
 
 					.img-1 {

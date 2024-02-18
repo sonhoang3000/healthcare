@@ -109,7 +109,7 @@
             "addressClinic": "Địa chỉ phòng khám",
             "note": "Ghi chú",
             "specialty":"Chọn chuyên khoa",
-            "select-clinic": "Chọn khòng khám"
+            "select-clinic": "Chọn phòng khám"
         }
     }
 }
