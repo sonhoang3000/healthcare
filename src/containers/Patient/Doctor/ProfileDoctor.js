@@ -91,7 +91,8 @@ class ProfileDoctor extends Component {
 				<div className='intro-doctor'>
 					<div
 						className='content-left'
-						style={{ backgroundImage: `url(${dataProfile && dataProfile.image ? dataProfile.image : ''})` }} >
+						style={{ backgroundImage: `url(${dataProfile && dataProfile.image ? dataProfile.image : ''})` }}
+					>
 
 					</div>
 					<div className='content-right'>
@@ -119,7 +120,8 @@ class ProfileDoctor extends Component {
 
 				</div>
 
-				{isShowLinkDetail === true &&
+				{
+					isShowLinkDetail === true &&
 					<div className='view-detail-doctor'>
 
 						<Link to={`/detail-doctor/${doctorId}`}>Xem thêm</Link>
@@ -127,10 +129,11 @@ class ProfileDoctor extends Component {
 					</div>
 				}
 
-				{isShowPrice === true &&
+				{
+					isShowPrice === true &&
 					<div className='price'>
 						<FormattedMessage id="patient.booking-modal.price" />
-						{dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI &&
+						{dataProfile && dataProfile.Doctor_Infor &&
 							<NumberFormat
 								className='currency'
 								value={dataProfile.Doctor_Infor.priceTypeData.valueVi}
@@ -139,20 +142,10 @@ class ProfileDoctor extends Component {
 								suffix={'VND'}
 							/>
 						}
-
-						{dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.EN &&
-							<NumberFormat
-								className='currency'
-								value={dataProfile.Doctor_Infor.priceTypeData.valueEn}
-								displayType={'text'}
-								thousandSeparator={true}
-								suffix={'$'}
-							/>
-						}
 					</div>
 				}
 
-			</div>
+			</div >
 		);
 	}
 }

@@ -26,7 +26,7 @@ class DetailHandbook extends Component {
 
       render() {
             return (
-                  <div></div>
+                  <div>123</div>
             );
       }
 }

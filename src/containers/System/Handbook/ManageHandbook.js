@@ -89,7 +89,7 @@ class ManageHandbook extends Component {
 
             return (
                   <div className='manage-handbook-container'>
-                        <div className='mhb-title'>Tạo mới cẩm nang dành cho bác sĩ</div>
+                        <div className='mhb-title'>Tạo mới cẩm nang </div>
                         <div className='create-new-handbook row'>
                               <div className='col-6 form-group'>
                                     <label>Tên cẩm nang</label>

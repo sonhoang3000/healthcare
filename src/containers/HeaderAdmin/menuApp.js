@@ -33,6 +33,9 @@ export const adminMenu = [
             {
                 name: 'menu.admin.manage-specialty', link: '/system/manage-specialty'
             },
+            {
+                name: 'menu.admin.manage-specialty', link: '/system/manage-specialty1'
+            }
         ]
     },
     { //Quản lý cẩm nang
@@ -54,6 +57,9 @@ export const doctorMenu = [
             },
             { //Quản lý bệnh nhân khám bệnh của bác sĩ 
                 name: 'menu.doctor.manage-patient', link: '/doctor/manage-patient'
+            },
+            { //Quản lý trang cẩm nang của bác sĩ 
+                name: 'menu.doctor.manage-handbook', link: '/doctor/manage-handbook'
             },
         ]
     }

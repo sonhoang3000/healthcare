@@ -182,7 +182,8 @@ class BookingModal extends Component {
 							className='right'
 							onClick={closeBookingModal}
 						>
-							<i className='fas fa-times'></i></span>
+							<i className='fas fa-times'></i>
+						</span>
 					</div>
 					<div className='booking-modal-body'>
 						<div className='doctor-infor'>

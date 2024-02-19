@@ -6,7 +6,8 @@ import * as actions from "../../../store/actions";
 import './UserRedux.scss'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-import TableMangeUser from './TableMangeUser';
+import TableManageUser from './TableManageUser';
+
 
 class UserRedux extends Component {
     constructor(props) {
@@ -213,7 +214,7 @@ class UserRedux extends Component {
         return (
             <div className='user-redux-container'>
                 <div className='title'>
-                    Thêm thành viên mới
+                    User-Redux.Js
                 </div>
                 <div className="user-redux-body" style={{ margin: "0 120px" }}>
                     <div className="container">
@@ -348,7 +349,7 @@ class UserRedux extends Component {
                             </div>
 
                             <div className='col-12 mb-5'>
-                                <TableMangeUser
+                                <TableManageUser
                                     handleEditUserFromParentKey={this.handleEditUserFromParent}
                                     action={this.state.action}
                                 />

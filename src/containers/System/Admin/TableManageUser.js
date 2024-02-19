@@ -52,6 +52,7 @@ class TableManageUser extends Component {
 		return (
 			<React.Fragment>
 				<table id="TableManageUser">
+					TableManageUser
 					<tbody>
 						<tr>
 							<th>Email</th>
@@ -63,7 +64,7 @@ class TableManageUser extends Component {
 						{arrUsers && arrUsers.length > 0 &&
 							arrUsers.map((item, index) => {
 								return (
-									<tr>
+									<tr key={index}>
 										<td>{item.email}</td>
 										<td>{item.firstName}</td>
 										<td>{item.lastName}</td>
@@ -74,7 +75,9 @@ class TableManageUser extends Component {
 												className="btn-edit" > <i className="fas fa-edit"></i> </button>
 											<button
 												onClick={() => this.handleDeleteUser(item)}
-												className="btn-delete" > <i className="fas fa-trash"></i> </button>
+												className="btn-delete" >
+												<i className="fas fa-trash"></i>
+											</button>
 										</td>
 									</tr>
 								)
@@ -87,7 +90,7 @@ class TableManageUser extends Component {
 				</table>
 				<MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} />
 
-			</React.Fragment>
+			</React.Fragment >
 
 		);
 	}

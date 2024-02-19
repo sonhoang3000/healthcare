@@ -6,35 +6,19 @@ import { history } from "../redux";
 import { ToastContainer } from "react-toastify";
 import { userIsAuthenticated, userIsNotAuthenticated, } from "../hoc/authentication";
 import { path } from "../utils";
+import CustomScrollbars from "../components/CustomScrollbars";
+
 import Home from "../routes/Home";
 import Login from "./Auth/Login";
-import System from "../routes/System";
+import SystemAdmin from "../routes/SystemAdmin.js";
+import DoctorAdmin from "../routes/DoctorAdmin.js";
+
 import HomePage from './HomePage/HomePage.js';
-import CustomScrollbars from "../components/CustomScrollbars";
-import DetailDoctor from "./Patient/Doctor/DetailDoctor.js";
-import Doctor from "../routes/Doctor.js";
 import VerifyEmail from "./Patient/VerifyEmail.js";
+import DetailDoctor from "./Patient/Doctor/DetailDoctor.js";
 import DetailSpecialty from "./Patient/Specialty/DetailSpecialty.js";
 import DetailClinic from "./Patient/Clinic/DetailClinic.js";
 class App extends Component {
-
-	handlePersistorState = () => {
-		const { persistor } = this.props;
-		let { bootstrapped } = persistor.getState();
-		if (bootstrapped) {
-			if (this.props.onBeforeLift) {
-				Promise.resolve(this.props.onBeforeLift())
-					.then(() => this.setState({ bootstrapped: true }))
-					.catch(() => this.setState({ bootstrapped: true }));
-			} else {
-				this.setState({ bootstrapped: true });
-			}
-		}
-	};
-
-	componentDidMount() {
-		this.handlePersistorState();
-	}
 
 	render() {
 		return (
@@ -46,8 +30,8 @@ class App extends Component {
 								<Switch>
 									<Route path={path.HOME} exact component={Home} />
 									<Route path={path.LOGIN} component={userIsNotAuthenticated(Login)} />
-									<Route path={path.SYSTEM} component={userIsAuthenticated(System)} />
-									<Route path={'/doctor/'} component={userIsAuthenticated(Doctor)} />
+									<Route path={path.SYSTEM_ADMIN} component={userIsAuthenticated(SystemAdmin)} />
+									<Route path={path.DOCTOR_ADMIN} component={userIsAuthenticated(DoctorAdmin)} />
 
 									<Route path={path.HOMEPAGE} component={(HomePage)} />
 									<Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
@@ -59,19 +43,6 @@ class App extends Component {
 								</Switch>
 							</CustomScrollbars>
 						</div>
-
-						{/* <ToastContainer
-							className="toast-container"
-							toastClassName="toast-item"
-							bodyClassName="toast-item-body"
-							autoClose={false}
-							hideProgressBar={true}
-							pauseOnHover={false}
-							pauseOnFocusLoss={true}
-							closeOnClick={false}
-							draggable={false}
-							closeButton={<CustomToastCloseButton />}
-						/> */}
 
 						<ToastContainer
 							position="bottom-right"
@@ -93,8 +64,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		started: state.app.started,
-		isLoggedIn: state.user.isLoggedIn,
 	};
 };
 

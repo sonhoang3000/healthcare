@@ -3,12 +3,15 @@ export const path = {
     HOMEPAGE: '/home',
     LOGIN: '/login',
     LOG_OUT: '/logout',
-    SYSTEM: '/system',
+    SYSTEM_ADMIN: '/system',
     DETAIL_DOCTOR: '/detail-doctor/:id',
     DETAIL_SPECIALTY: '/detail-specialty/:id',
     DETAIL_CLINIC: '/detail-clinic/:id',
+    DETAIL_HANDBOOK: '/detail-handbook/:id',
 
-    VERIFY_EMAIL_BOOK: '/verify-booking'
+    VERIFY_EMAIL_BOOK: '/verify-booking',
+
+    DOCTOR_ADMIN: '/doctor'
 };
 
 export const LANGUAGES = {

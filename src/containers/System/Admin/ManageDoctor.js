@@ -275,7 +275,7 @@ class ManageDoctor extends Component {
 		return (
 			<div className="manage-doctor-container">
 				<div className="manage-doctor-title">
-					<FormattedMessage id="admin.manage-doctor.title" />
+					ManageDoctor.js
 				</div>
 				<div className="more-infor">
 					<div className="content-left form-group">
@@ -386,7 +386,8 @@ class ManageDoctor extends Component {
 
 				<button
 					onClick={() => this.handleSaveContentMarkdown()}
-					className={hasOldData === true ? "save-content-doctor" : "create-content-doctor"}>
+					className={hasOldData === true ? "save-content-doctor" : "create-content-doctor"}
+				>
 					{hasOldData === true ?
 						<span>
 							<FormattedMessage id="admin.manage-doctor.save" />

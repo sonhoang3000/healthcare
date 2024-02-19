@@ -41,7 +41,7 @@ class HeaderAdmin extends Component {
 
     render() {
         const { processLogout, userInfo } = this.props;
-
+        console.log('check state', this.state.menuApp)
         return (
             <div className="header-container">
                 {/* thanh navigator */}

@@ -20,9 +20,8 @@ class DetailClinic extends Component {
 	async componentDidMount() {
 		if (this.props.match && this.props.match.params && this.props.match.params.id) {
 			let id = this.props.match.params.id;
-
 			let res = await getDetailClinicById({
-				id: id,
+				id: id
 			});
 
 
@@ -35,7 +34,6 @@ class DetailClinic extends Component {
 						arr.forEach(item => {
 							arrDoctorId.push(item.doctorId)
 						})
-
 					}
 				}
 
@@ -65,10 +63,9 @@ class DetailClinic extends Component {
 						{dataDetailClinic && !_.isEmpty(dataDetailClinic)
 							&&
 							<>
-								<div>{dataDetailClinic.name}</div>
-								<div dangerouslySetInnerHTML={{ __html: dataDetailClinic.descriptionHTML }} >
-
-								</div>
+								<div className='title-clinic'>{dataDetailClinic.name}</div>
+								<div className='address-clinic'>{dataDetailClinic.address}</div>
+								<div dangerouslySetInnerHTML={{ __html: dataDetailClinic.descriptionHTML }} ></div>
 							</>
 						}
 					</div>
@@ -84,7 +81,6 @@ class DetailClinic extends Component {
 												isShowDescriptionDoctor={true}
 												isShowLinkDetail={true}
 												isShowPrice={false}
-											// dataTime={dataTime}
 											/>
 										</div>
 									</div>
@@ -114,7 +110,6 @@ class DetailClinic extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 
