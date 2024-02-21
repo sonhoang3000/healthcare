@@ -1,8 +1,6 @@
 import express from "express";
-// Cấu hình các thứ cần thiết
 import bodyParser from "body-parser";
-// lấy cái tham số query, params /user/id=7 ?
-// import viewEngine from "./config/viewEngine";
+import viewEngine from "./config/viewEngine";
 import initWebRoutes from "./route/web";
 import connectDB from "./config/connectDB";
 // import cors from "cors";
@@ -39,12 +37,10 @@ app.use(function (req, res, next) {
 
 //config app
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// viewEngine(app);
+viewEngine(app);
 initWebRoutes(app);
 
 connectDB();
@@ -54,5 +50,5 @@ let port = process.env.PORT || 6969;
 
 app.listen(port, () => {
   // callback
-  console.log("Backend Nodejs in running on the port : " + port);
+  console.log("Backend Nodejs in runnig on the port : " + port);
 });
