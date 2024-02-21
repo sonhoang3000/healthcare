@@ -21,6 +21,13 @@ class HandBook extends Component {
 		}
 	}
 
+	handleViewDetailHandbook = (item) => {
+		if (this.props.history) {
+			this.props.history.push(`/detail-handbook/${item.id}`)
+		}
+		console.log('check item', item)
+	}
+
 	render() {
 		let { dataHandbook } = this.state
 		return (
@@ -36,11 +43,15 @@ class HandBook extends Component {
 							{dataHandbook && dataHandbook.length > 0 &&
 								dataHandbook.map((item, index) => {
 									return (
-										<div className="section-customize " key={index} >
+										<div
+											onClick={() => this.handleViewDetailHandbook(item)}
+											className="section-customize handbook-child"
+											key={index}
+										>
 											<div className="bg-image section-handbook"
 												style={{ backgroundImage: `url(${item.image})` }}
 											/>
-											<div>{item.name}</div>
+											<div className='handbook-name'>{item.name}</div>
 										</div>
 									)
 								})}

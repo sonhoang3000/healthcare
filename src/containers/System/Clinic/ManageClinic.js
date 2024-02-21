@@ -20,17 +20,6 @@ class ManageClinic extends Component {
 			descriptionHTML: '',
 			descriptionMarkdown: '',
 		}
-	}
-
-	async componentDidMount() {
-
-
-	}
-
-	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-
-		}
 
 	}
 
@@ -73,7 +62,7 @@ class ManageClinic extends Component {
 				descriptionMarkdown: '',
 			})
 		} else {
-			toast.error('Something wrong ...')
+			toast.error("Something wrong manageClinic")
 			console.log('check res', res)
 		}
 	}
@@ -120,8 +109,6 @@ class ManageClinic extends Component {
 					</div>
 
 				</div>
-
-
 			</div>
 		);
 	}
@@ -129,7 +116,6 @@ class ManageClinic extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 

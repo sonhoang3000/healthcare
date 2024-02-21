@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-
+import { toast } from 'react-toastify';
 import "./Login.scss";
 import { handleLoginApi } from "../../services/userService";
 
@@ -17,21 +17,16 @@ class Login extends Component {
 		};
 	}
 
-	handleOnChangeInput = (event) => {
+	handleOnChangeUsername = (eventUsername) => {
 		this.setState({
-			username: event.target.value,
-		});
-		console.log(event.target.value);
-	};
-	handleOnChangeUsername = (event) => {
-		this.setState({
-			username: event.target.value,
+			username: eventUsername.target.value,
 		});
 	};
 	handleOnChangePassword = (event) => {
 		this.setState({
 			password: event.target.value,
 		});
+
 	};
 
 	handleLogin = async () => {
@@ -41,13 +36,15 @@ class Login extends Component {
 
 		try {
 			let data = await handleLoginApi(this.state.username, this.state.password);
+			console.log('check data login.js', data)
 			if (data && data.errCode !== 0) {
 				this.setState({
 					errMessage: data.message,
 				});
 			}
 			if (data && data.errCode === 0) {
-				this.props.userLoginSuccess(data.user);
+				this.props.userLoginSuccessLogin(data.user);
+				toast.success("User login succeed!")
 			}
 		} catch (error) {
 			if (error.response) {
@@ -86,8 +83,8 @@ class Login extends Component {
 								type="text"
 								className="form-control"
 								placeholder="Enter your username"
-								value={this.state.username}
-								onChange={(event) => this.handleOnChangeUsername(event)}
+								// value={this.state.username}
+								onChange={(eventUsername) => this.handleOnChangeUsername(eventUsername)}
 							/>
 						</div>
 						<div className="col-12 form-group login-input">
@@ -130,6 +127,8 @@ class Login extends Component {
 								Login
 							</button>
 						</div>
+
+
 						<div className="col-12">
 							<span className="forgot-password">Forgot your password</span>
 						</div>
@@ -157,7 +156,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		navigate: (path) => dispatch(push(path)),
 		// userLoginFail: () => dispatch(actions.adminLoginFail()),
-		userLoginSuccess: (userInfor) => dispatch(actions.userLoginSuccess(userInfor)),
+		userLoginSuccessLogin: (userInforLogin) => dispatch(actions.userLoginSuccessActions(userInforLogin)),
 	};
 };
 

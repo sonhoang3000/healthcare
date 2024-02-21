@@ -7,7 +7,6 @@ import DoctorExtraInfor from '../Doctor/DoctorExtraInfor';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getAllDetailSpecialtyById, getAllCodeService } from '../../../services/userService';
 import _ from 'lodash';
-import { LANGUAGES } from '../../../utils';
 class DetailSpecialty extends Component {
 
 	constructor(props) {
@@ -39,7 +38,6 @@ class DetailSpecialty extends Component {
 						arr.forEach(item => {
 							arrDoctorId.push(item.doctorId)
 						})
-
 					}
 				}
 
@@ -61,13 +59,6 @@ class DetailSpecialty extends Component {
 				})
 			}
 		}
-	}
-
-	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-
-		}
-
 	}
 
 	handleOnChangeSelect = async (event) => {
@@ -104,8 +95,6 @@ class DetailSpecialty extends Component {
 	render() {
 		let { arrDoctorId, dataDetailSpecialty, listProvince } = this.state
 		console.log('check state', this.state)
-		let { language } = this.props;
-
 		return (
 			<div className='detail-specialty-container'>
 				<HomeHeader />
@@ -125,7 +114,7 @@ class DetailSpecialty extends Component {
 								listProvince.map((item, index) => {
 									return (
 										<option key={index} value={item.keyMap}>
-											{language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+											{item.valueVi}
 										</option>
 									)
 								})
@@ -175,7 +164,6 @@ class DetailSpecialty extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 
