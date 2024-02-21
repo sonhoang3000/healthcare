@@ -9,8 +9,7 @@ import './HeaderAdmin.scss';
 class HeaderAdmin extends Component {
 
     render() {
-        const { processLogout } = this.props;
-
+        const { processLogoutHeaderAdmin } = this.props;
         return (
             <div className="header-container">
                 {/* thanh navigator */}
@@ -19,7 +18,7 @@ class HeaderAdmin extends Component {
                 </div>
 
                 {/* nút logout */}
-                <div className="btn btn-logout" onClick={processLogout}>
+                <div className="btn btn-logout" onClick={processLogoutHeaderAdmin}>
                     <i className="fas fa-sign-out-alt"></i>
                 </div>
             </div>
@@ -36,7 +35,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        processLogout: () => dispatch(actions.processLogout()),
+        processLogoutHeaderAdmin: () => dispatch(actions.processLogoutUserActions()),
     };
 };
 
