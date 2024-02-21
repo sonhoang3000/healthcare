@@ -56,7 +56,46 @@ let getAllHandbook = () => {
       })
 }
 
+let getDetailHandbookById = (inputId) => {
+      return new Promise(async (resolve, reject) => {
+            try {
+                  if (!inputId) {
+                        resolve({
+                              errCode: 1,
+                              errMessage: 'Missing parameters'
+                        })
+                  } else {
+                        let data = await db.Handbook.findOne({
+                              where: {
+                                    id: inputId
+                              },
+                              attributes: ['name', 'address', 'descriptionHTML', 'descriptionMarkdown']
+                        })
+
+                        if (data) {
+                              let doctorHandbook = [];
+                              doctorHandbook = await db.Doctor_Infor.findAll({
+                                    where: { clinicId: inputId },
+                                    attributes: ['doctorId',]
+                              })
+                              data.doctorHandbook = doctorHandbook;
+
+                        } else data = {}
+
+                        resolve({
+                              errMessage: 'OK',
+                              errCode: 0,
+                              data
+                        })
+                  }
+            } catch (e) {
+                  reject(e)
+            }
+      })
+}
+
 module.exports = {
       createHandbook: createHandbook,
-      getAllHandbook: getAllHandbook
+      getAllHandbook: getAllHandbook,
+      getDetailHandbookById: getDetailHandbookById
 }

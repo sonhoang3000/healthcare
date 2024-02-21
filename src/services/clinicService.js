@@ -10,7 +10,6 @@ let createClinic = (data) => {
                               errMessage: 'Missing parameters'
                         })
                   } else {
-
                         await db.Clinic.create({
                               name: data.name,
                               address: data.address,
@@ -30,13 +29,12 @@ let createClinic = (data) => {
       })
 }
 
-let getAllClinic = (data) => {
+let getAllClinic = () => {
       return new Promise(async (resolve, reject) => {
             try {
                   let data = await db.Clinic.findAll({
 
                   });
-
                   if (data && data.length > 0) {
                         data.map(item => {
                               item.image = new Buffer(item.image, 'base64').toString('binary');
@@ -77,7 +75,6 @@ let getDetailClinicById = (inputId) => {
                                     attributes: ['doctorId', 'provinceId']
                               })
                               data.doctorClinic = doctorClinic;
-
                         } else data = {}
 
                         resolve({

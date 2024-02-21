@@ -19,9 +19,6 @@ module.exports = {
                   clinicId: {
                         type: Sequelize.INTEGER,
                   },
-                  handbookId: {
-                        type: Sequelize.INTEGER,
-                  },
                   priceId: {
                         type: Sequelize.STRING,
                         allowNull: false,
