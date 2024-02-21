@@ -20,8 +20,6 @@ const isLocalhost = Boolean(
   )
 );
 
-//isLocalhost là một biến boolean xác định xem ứng dụng đang chạy trên localhost hay không. Nếu đang chạy trên localhost, có một số hành động đặc biệt được thực hiện.
-
 export function register(config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
@@ -51,14 +49,10 @@ export function register(config) {
       } else {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
-
-        //registerValidSW(swUrl, config) là hàm để đăng ký service worker. Nó đăng ký service worker từ URL được cung cấp và thực hiện các xử lý khi service worker được cài đặt và cập nhật.
       }
     });
   }
 }
-
-//register(config) là hàm chính để đăng ký service worker. Nó kiểm tra xem ứng dụng đang chạy trong môi trường production và trình duyệt có hỗ trợ service worker hay không. Nếu có, nó kiểm tra xem ứng dụng đang chạy trên localhost hay không và thực hiện đăng ký service worker hoặc kiểm tra service worker đã đăng ký.
 
 function registerValidSW(swUrl, config) {
   navigator.serviceWorker
@@ -104,9 +98,6 @@ function registerValidSW(swUrl, config) {
     });
 }
 
-//registerValidSW(swUrl, config) là hàm để đăng ký service worker. Nó đăng ký service worker từ URL được cung cấp và thực hiện các xử lý khi service worker được cài đặt và cập nhật.
-
-
 function checkValidServiceWorker(swUrl, config) {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
@@ -135,8 +126,6 @@ function checkValidServiceWorker(swUrl, config) {
     });
 }
 
-//checkValidServiceWorker(swUrl, config) là hàm để kiểm tra xem service worker có tồn tại hay không. Nếu không, nó sẽ unregister service worker hiện tại và tải lại trang. Nếu tồn tại, nó sẽ gọi hàm registerValidSW để đăng ký service worker.
-
 export function unregister() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.ready.then(registration => {
@@ -144,6 +133,3 @@ export function unregister() {
     });
   }
 }
-
-//unregister() là hàm để hủy đăng ký service worker nếu trình duyệt hỗ trợ service worker.
-

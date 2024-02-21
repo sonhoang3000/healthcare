@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
-import { toast } from 'react-toastify';
+
 import "./Login.scss";
+import { FormattedMessage } from "react-intl";
 import { handleLoginApi } from "../../services/userService";
 
 class Login extends Component {
@@ -17,16 +18,21 @@ class Login extends Component {
 		};
 	}
 
-	handleOnChangeUsername = (eventUsername) => {
+	handleOnChangeInput = (event) => {
 		this.setState({
-			username: eventUsername.target.value,
+			username: event.target.value,
+		});
+		console.log(event.target.value);
+	};
+	handleOnChangeUsername = (event) => {
+		this.setState({
+			username: event.target.value,
 		});
 	};
 	handleOnChangePassword = (event) => {
 		this.setState({
 			password: event.target.value,
 		});
-
 	};
 
 	handleLogin = async () => {
@@ -36,15 +42,13 @@ class Login extends Component {
 
 		try {
 			let data = await handleLoginApi(this.state.username, this.state.password);
-			console.log('check data login.js', data)
 			if (data && data.errCode !== 0) {
 				this.setState({
 					errMessage: data.message,
 				});
 			}
 			if (data && data.errCode === 0) {
-				this.props.userLoginSuccessLogin(data.user);
-				toast.success("User login succeed!")
+				this.props.userLoginSuccess(data.user);
 			}
 		} catch (error) {
 			if (error.response) {
@@ -63,12 +67,6 @@ class Login extends Component {
 		});
 	};
 
-	handleKeyDown = (event) => {
-		if (event.key === 'Enter' || event.keyCode === 13) {
-			this.handleLogin();
-		}
-	}
-
 	render() {
 		//JSX
 
@@ -83,8 +81,8 @@ class Login extends Component {
 								type="text"
 								className="form-control"
 								placeholder="Enter your username"
-								// value={this.state.username}
-								onChange={(eventUsername) => this.handleOnChangeUsername(eventUsername)}
+								value={this.state.username}
+								onChange={(event) => this.handleOnChangeUsername(event)}
 							/>
 						</div>
 						<div className="col-12 form-group login-input">
@@ -95,7 +93,6 @@ class Login extends Component {
 									className="form-control"
 									placeholder="Enter your password"
 									onChange={(event) => this.handleOnChangePassword(event)}
-									onKeyDown={(event) => this.handleKeyDown(event)}
 								/>
 								<span
 									onClick={() => {
@@ -103,7 +100,7 @@ class Login extends Component {
 									}}
 								>
 									<i
-										className={
+										class={
 											this.state.isShowPassword
 												? "far fa-eye"
 												: "far fa-eye-slash"
@@ -113,7 +110,7 @@ class Login extends Component {
 							</div>
 						</div>
 
-						<div className="col-12" style={{ color: "red" }}>
+						<div class="col-12" style={{ color: "red" }}>
 							{this.state.errMessage}
 						</div>
 
@@ -127,8 +124,6 @@ class Login extends Component {
 								Login
 							</button>
 						</div>
-
-
 						<div className="col-12">
 							<span className="forgot-password">Forgot your password</span>
 						</div>
@@ -141,7 +136,7 @@ class Login extends Component {
 						</div>
 					</div>
 				</div>
-			</div >
+			</div>
 		);
 	}
 }
@@ -154,9 +149,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		navigate: (path) => dispatch(push(path)),
 		// userLoginFail: () => dispatch(actions.adminLoginFail()),
-		userLoginSuccessLogin: (userInforLogin) => dispatch(actions.userLoginSuccessActions(userInforLogin)),
+		userLoginSuccess: (userInfor) => dispatch(actions.userLoginSuccess(userInfor)),
 	};
 };
 
