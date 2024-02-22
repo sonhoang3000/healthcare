@@ -16,12 +16,6 @@ class Login extends Component {
 		};
 	}
 
-	handleOnChangeInput = (event) => {
-		this.setState({
-			username: event.target.value,
-		});
-		console.log(event.target.value);
-	};
 	handleOnChangeUsername = (event) => {
 		this.setState({
 			username: event.target.value,
@@ -32,7 +26,6 @@ class Login extends Component {
 			password: event.target.value,
 		});
 	};
-
 	handleLogin = async () => {
 		this.setState({
 			errMessage: "",
@@ -49,15 +42,13 @@ class Login extends Component {
 				this.props.userLoginSuccessOfLogin(data.user);
 			}
 		} catch (error) {
-			if (error.response) {
-				if (error.response.data) {
-					this.setState({
-						errMessage: error.response.data.message,
-					});
-				}
+			if (error.response && error.response.data) {
+				this.setState({
+					errMessage: error.response.data.message,
+				});
 			}
 		}
-	};
+	}
 
 	handleShowHidePassword = () => {
 		this.setState({
@@ -79,7 +70,6 @@ class Login extends Component {
 								type="text"
 								className="form-control"
 								placeholder="Enter your username"
-								value={this.state.username}
 								onChange={(event) => this.handleOnChangeUsername(event)}
 							/>
 						</div>
@@ -93,17 +83,13 @@ class Login extends Component {
 									onChange={(event) => this.handleOnChangePassword(event)}
 								/>
 								<span
-									onClick={() => {
-										this.handleShowHidePassword();
-									}}
+									onClick={() => this.handleShowHidePassword()}
 								>
 									<i
-										class={
-											this.state.isShowPassword
-												? "far fa-eye"
-												: "far fa-eye-slash"
-										}
-									></i>
+										className={
+											this.state.isShowPassword ? "far fa-eye" : "far fa-eye-slash"
+										}>
+									</i>
 								</span>
 							</div>
 						</div>
@@ -115,9 +101,7 @@ class Login extends Component {
 						<div className="col-12">
 							<button
 								className="btn-login"
-								onClick={() => {
-									this.handleLogin();
-								}}
+								onClick={() => this.handleLogin()}
 							>
 								Login
 							</button>
@@ -141,13 +125,11 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		language: state.app.language,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// userLoginFail: () => dispatch(actions.adminLoginFail()),
 		userLoginSuccessOfLogin: (userInfor) => dispatch(actions.userLoginSuccessUserActions(userInfor)),
 	};
 };
