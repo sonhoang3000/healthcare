@@ -9,7 +9,6 @@ import { path } from "../utils";
 import Home from "../routes/Home";
 import Login from "./Auth/Login";
 import SystemAdmin from "../routes/SystemAdmin";
-import { CustomToastCloseButton } from "../components/CustomToast";
 import HomePage from './HomePage/HomePage.js';
 import CustomScrollbars from "../components/CustomScrollbars"
 
@@ -50,6 +49,18 @@ class App extends Component {
 						</div>
 
 						<ToastContainer
+							position="bottom-right"
+							autoClose={5000}
+							hideProgressBar={false}
+							newestOnTop={false}
+							closeOnClick
+							rtl={false}
+							pauseOnFocusLoss
+							draggable
+							pauseOnHover
+						/>
+
+						{/* <ToastContainer
 							className="toast-container"
 							toastClassName="toast-item"
 							bodyClassName="toast-item-body"
@@ -60,7 +71,9 @@ class App extends Component {
 							closeOnClick={false}
 							draggable={false}
 							closeButton={<CustomToastCloseButton />}
-						/>
+						/> */}
+
+
 					</div>
 				</Router>
 			</Fragment>

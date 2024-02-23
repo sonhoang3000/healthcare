@@ -16,7 +16,6 @@ class HeaderAdmin extends Component {
 
     render() {
         const { processLogout, language, userInfo } = this.props;
-        console.log('check props', this.props)
 
         return (
             <div className="header-container">
