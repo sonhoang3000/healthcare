@@ -77,6 +77,20 @@
             "detail": "Detail ",
             "payment": "Patients can pay by form :",
             "hide-price": "Hide price list"
+        },
+        "booking-modal": {
+            "title": "Information to book a medical appointment",
+            "fullName": "Fullname",
+            "phoneNumber": "Phone number",
+            "email": "Email",
+            "address": "Address",
+            "reason": "Reasons for medial examination",
+            "birthday": "Date of brith",
+            "gender": "Genders  ",
+            "btnConfirm": "Confirm",
+            "btnCancel": "Cancel",
+            "priceBooking": "Free booking",
+            "price":"Price: "
         }
     },
     "admin": {
