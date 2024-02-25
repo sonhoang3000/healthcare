@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
 import './DetailClinic.scss';
 import HomeHeader from '../../HomePage/HomeHeader';
 import DoctorSchedule from '../Doctor/DoctorSchedule';
 import DoctorExtraInfor from '../Doctor/DoctorExtraInfor';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
-import { getDetailClinicById, getAllCodeService } from '../../../services/userService';
+import { getDetailClinicById } from '../../../services/userService';
 import _ from 'lodash';
-import { LANGUAGES } from '../../../utils';
 class DetailClinic extends Component {
 
 	constructor(props) {
@@ -34,7 +32,7 @@ class DetailClinic extends Component {
 				if (data && !_.isEmpty(res.data)) {
 					let arr = data.doctorClinic;
 					if (arr && arr.length > 0) {
-						arr.map(item => {
+						arr.forEach(item => {
 							arrDoctorId.push(item.doctorId)
 						})
 
@@ -58,7 +56,6 @@ class DetailClinic extends Component {
 
 	render() {
 		let { arrDoctorId, dataDetailClinic } = this.state
-		let { language } = this.props;
 		return (
 			<div className='detail-specialty-container'>
 				<HomeHeader />

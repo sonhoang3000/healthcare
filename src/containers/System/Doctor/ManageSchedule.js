@@ -4,9 +4,8 @@ import './ManageSchedule.scss';
 import { FormattedMessage } from "react-intl";
 import Select from 'react-select';
 import * as actions from "../../../store/actions";
-import { CRUD_ACTIONS, LANGUAGES, dateFormat } from '../../../utils';
+import { LANGUAGES } from '../../../utils';
 import DatePicker from '../../../components/Input/DatePicker';
-import moment from 'moment';
 import { toast } from "react-toastify"
 import _ from 'lodash';
 import { saveBulkScheduleDoctor } from '../../../services/userService';
@@ -38,7 +37,7 @@ class ManageSchedule extends Component {
 		if (prevProps.allScheduleTime !== this.props.allScheduleTime) {
 			let data = this.props.allScheduleTime;
 			if (data && data.length > 0) {
-				data = data.map(item => ({ ...item, isSelected: false }))
+				data = data.forEach(item => ({ ...item, isSelected: false }))
 			}
 			this.setState({
 				rangeTime: data
@@ -50,7 +49,7 @@ class ManageSchedule extends Component {
 		let result = [];
 		let { language } = this.props;
 		if (inputData && inputData.length > 0) {
-			inputData.map((item, index) => {
+			inputData.forEach((item, index) => {
 				let object = {};
 				let labelVi = `${item.lastName} ${item.firstName}`;
 				let labelEn = `${item.firstName} ${item.lastName} `;
@@ -75,7 +74,7 @@ class ManageSchedule extends Component {
 	handleClickBtnTime = (time) => {
 		let { rangeTime } = this.state;
 		if (rangeTime && rangeTime.length > 0) {
-			rangeTime = rangeTime.map(item => {
+			rangeTime = rangeTime.forEach(item => {
 				if (item.id === time.id) item.isSelected = !item.isSelected;
 				return item;
 			})
@@ -105,7 +104,7 @@ class ManageSchedule extends Component {
 		if (rangeTime && rangeTime.length > 0) {
 			let selectedTime = rangeTime.filter(item => item.isSelected === true);
 			if (selectedTime && selectedTime.length > 0) {
-				selectedTime.map((schedule, index) => {
+				selectedTime.forEach((schedule, index) => {
 					let object = {};
 					object.doctorId = selectedDoctor.value;
 					object.date = formatedDate;
@@ -164,7 +163,7 @@ class ManageSchedule extends Component {
 						</div>
 						<div className='col-12 pick-hour-container' >
 							{rangeTime && rangeTime.length > 0 &&
-								rangeTime.map((item, index) => {
+								rangeTime.forEach((item, index) => {
 									return (
 										<button
 											className={item.isSelected === true ? 'btn btn-schedule active' : 'btn btn-schedule'}
