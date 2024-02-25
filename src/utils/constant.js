@@ -5,6 +5,9 @@ export const path = {
     LOG_OUT: '/logout',
     SYSTEM: '/system',
     DETAIL_DOCTOR: '/detail-doctor/:id',
+    DETAIL_SPECIALTY: '/detail-specialty/:id',
+    DETAIL_CLINIC: '/detail-clinic/:id',
+
     VERIFY_EMAIL_BOOK: '/verify-booking'
 };
 
@@ -15,7 +18,6 @@ export const LANGUAGES = {
 
 export const CRUD_ACTIONS = {
     CREATE: "CREATE",
-    ADD: "ADD",
     EDIT: "EDIT",
     DELETE: "DELETE",
     READ: "READ"

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import * as actions from "../../store/actions";
 import Navigator from '../../components/Navigator';
 import { adminMenu, doctorMenu } from './menuApp';
-import './HeaderAdmin.scss';
+import './Header.scss';
 import { LANGUAGES, USER_ROLE } from "../../utils";
 import { FormattedMessage } from "react-intl";
 import _ from 'lodash';
 
-class HeaderAdmin extends Component {
+class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -78,17 +77,17 @@ class HeaderAdmin extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoggedInHeaderAdmin: state.user.isLoggedIn,
-        language: state.app.language,
+        isLoggedIn: state.user.isLoggedIn,
         userInfo: state.user.userInfo,
+        language: state.app.language,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        processLogout: () => dispatch(actions.processLogoutUserActions()),
+        processLogout: () => dispatch(actions.processLogout()),
         changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderAdmin);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

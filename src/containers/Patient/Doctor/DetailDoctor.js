@@ -22,10 +22,11 @@ class DetailDoctor extends Component {
                   this.setState({
                         currentDoctorId: id
                   })
+
                   let res = await getDetailInforDoctor(id);
                   if (res && res.errCode === 0) {
                         this.setState({
-                              detailDoctor: res.data
+                              detailDoctor: res.data,
                         })
                   }
             }
