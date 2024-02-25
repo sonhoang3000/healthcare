@@ -1,8 +1,8 @@
 import db from "../models/index";
 import bcrypt from "bcryptjs";
 
-
 const salt = bcrypt.genSaltSync(10);
+
 
 let hashUserPassword = (password) => {
 	return new Promise(async (resolve, reject) => {
@@ -24,7 +24,7 @@ let handleUserLogin = (email, password) => {
 				//user already exist
 
 				let user = await db.User.findOne({
-					attributes: ["email", "roleId", "password", "firstName", "lastName"],
+					attributes: ["id", "email", "roleId", "password", "firstName", "lastName"],
 					where: { email: email },
 					raw: true,
 				});
@@ -75,14 +75,14 @@ let checkUserEmail = (userEmail) => {
 	});
 };
 
-let getAllUsersService = (userId) => {
+let getAllUsers = (userId) => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			let users = "";
+			let users = 'abcxyz';
 			if (userId === 'ALL') {
 				users = await db.User.findAll({
 					attributes: {
-						exclude: ['password', 'image']
+						exclude: ['password']
 					}
 				})
 			}
@@ -95,10 +95,12 @@ let getAllUsersService = (userId) => {
 				})
 			}
 			resolve(users)
+
 		} catch (e) {
-			reject(e);
+			reject(e)
 		}
-	});
+
+	})
 }
 
 let createNewUser = (data) => {
@@ -127,7 +129,7 @@ let createNewUser = (data) => {
 				});
 				resolve({
 					errCode: 0,
-					message: "Okie con kin chana"
+					message: "Okie kin chana"
 				});
 			}
 
@@ -149,6 +151,10 @@ let deleteUser = (userId) => {
 				errMessage: `The user isn't exist`
 			})
 		}
+		// if (foundUser) {
+		// 	await foundUser.destroy();
+		// }
+
 		await db.User.destroy({
 			where: { id: userId }
 		})
@@ -229,9 +235,9 @@ let getAllCodeService = (typeInput) => {
 
 module.exports = {
 	handleUserLogin: handleUserLogin,
-	getAllUsersService: getAllUsersService,
+	getAllUsers: getAllUsers,
 	createNewUser: createNewUser,
 	deleteUser: deleteUser,
 	updateUserData: updateUserData,
-	getAllCodeService: getAllCodeService
+	getAllCodeService: getAllCodeService,
 };

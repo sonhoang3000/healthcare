@@ -25,20 +25,20 @@ let handleLogin = async (req, res) => {
 };
 
 let handleGetAllUsers = async (req, res) => {
-	let id = req.query.id //ALL,id
+	let id = req.query.id //ALL, id
 
-	// if (!id) {
-	// 	return res.status(200).json({
-	// 		errCode: 1,
-	// 		errMessage: "Missing required parameters",
-	// 		users: []
-	// 	})
-	// }
-	let users = await userService.getAllUsersService(id);
+	if (!id) {
+		return res.status(200).json({
+			errCode: 1,
+			errMessage: "Missing required parameters",
+			users: []
+		})
+	}
 
+	let users = await userService.getAllUsers(id);
 	return res.status(200).json({
 		errCode: 0,
-		errMessage: "I'am Okie, from userController",
+		errMessage: "I'am Okie, I'm fine, kin cha na",
 		users
 	})
 }
@@ -84,5 +84,5 @@ module.exports = {
 	handleCreateNewUser: handleCreateNewUser,
 	handleEditUser: handleEditUser,
 	handleDeleteUser: handleDeleteUser,
-	getAllCode: getAllCode
+	getAllCode: getAllCode,
 };
