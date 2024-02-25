@@ -55,6 +55,12 @@ class Login extends Component {
 		});
 	};
 
+	handleKeyDown = (event) => {
+		if (event.key === 'Enter' || event.keyCode === 13) {
+			this.handleLogin();
+		}
+	}
+
 	render() {
 		//JSX
 		return (
@@ -68,6 +74,7 @@ class Login extends Component {
 								type="text"
 								className="form-control"
 								placeholder="Enter your username"
+								value={this.state.username}
 								onChange={(event) => this.handleOnChangeInput(event, 'username')}
 							/>
 						</div>
@@ -79,6 +86,7 @@ class Login extends Component {
 									className="form-control"
 									placeholder="Enter your password"
 									onChange={(event) => this.handleOnChangeInput(event, 'password')}
+									onKeyDown={(event) => this.handleKeyDown(event)}
 								/>
 								<span
 									onClick={() => this.handleShowHidePassword()}
