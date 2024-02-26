@@ -103,7 +103,7 @@ let getAllUsers = (userId) => {
 	})
 }
 
-let createNewUser = (data) => {
+let createNewUserService = (data) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			// check email is exist ???
@@ -114,6 +114,7 @@ let createNewUser = (data) => {
 					errMessage: "Your email is already used, Please try another email!"
 				});
 			} else {
+				console.log('check create user service', data)
 				let hashPasswordFromBcrypt = await hashUserPassword(data.password);
 				await db.User.create({
 					email: data.email,
@@ -215,7 +216,7 @@ let getAllCodeService = (typeInput) => {
 			if (!typeInput) {
 				resolve({
 					errCode: 1,
-					errMessage: " Missing required parameters"
+					errMessage: " Missing required parameters allcode"
 				})
 			} else {
 				let res = {};
@@ -236,7 +237,7 @@ let getAllCodeService = (typeInput) => {
 module.exports = {
 	handleUserLogin: handleUserLogin,
 	getAllUsers: getAllUsers,
-	createNewUser: createNewUser,
+	createNewUserService: createNewUserService,
 	deleteUser: deleteUser,
 	updateUserData: updateUserData,
 	getAllCodeService: getAllCodeService,
