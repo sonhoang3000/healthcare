@@ -6,16 +6,18 @@ import { history } from "../redux";
 import { ToastContainer } from "react-toastify";
 import { userIsAuthenticated, userIsNotAuthenticated, } from "../hoc/authentication";
 import { path } from "../utils";
+import CustomScrollbars from "../components/CustomScrollbars";
+
 import Home from "../routes/Home";
 import Login from "./Auth/Login";
 import System from "../routes/System";
-import HomePage from './HomePage/HomePage.js';
-import CustomScrollbars from "../components/CustomScrollbars";
-import DetailDoctor from "./Patient/Doctor/DetailDoctor.js";
 import Doctor from "../routes/Doctor.js";
-import VerifyEmail from "./Patient/VerifyEmail.js";
+
+import HomePage from './HomePage/HomePage.js';
+import DetailDoctor from "./Patient/Doctor/DetailDoctor.js";
 import DetailSpecialty from "./Patient/Specialty/DetailSpecialty.js";
 import DetailClinic from "./Patient/Clinic/DetailClinic.js";
+import VerifyEmail from "./Patient/VerifyEmail.js";
 class App extends Component {
 
 	handlePersistorState = () => {

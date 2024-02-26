@@ -8,6 +8,8 @@ import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getAllDetailSpecialtyById, getAllCodeService } from '../../../services/userService';
 import _ from 'lodash';
 import { LANGUAGES } from '../../../utils';
+import HomeFooter from "../../HomePage/HomeFooter"
+import '../../HomePage/HomePage.scss';
 class DetailSpecialty extends Component {
 
 	constructor(props) {
@@ -107,68 +109,75 @@ class DetailSpecialty extends Component {
 		let { language } = this.props;
 
 		return (
-			<div className='detail-specialty-container'>
-				<HomeHeader />
-				<div className='detail-specialty-body'>
+			<>
+				<div className='detail-specialty-container'>
+					<HomeHeader />
+					<div className='detail-specialty-body'>
 
-					<div className='description-specialty'>
-						{dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty)
-							&&
-							<div dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHTML }} >
+						<div className='description-specialty'>
+							{dataDetailSpecialty && !_.isEmpty(dataDetailSpecialty)
+								&&
+								<div dangerouslySetInnerHTML={{ __html: dataDetailSpecialty.descriptionHTML }} >
 
-							</div>
-						}
-					</div>
-					<div className='serach-sp-doctor'>
-						<select onChange={(event) => this.handleOnChangeSelect(event)}>
-							{listProvince && listProvince.length > 0 &&
-								listProvince.map((item, index) => {
-									return (
-										<option key={index} value={item.keyMap}>
-											{language === LANGUAGES.VI ? item.valueVi : item.valueEn}
-										</option>
-									)
-								})
-
-							}
-
-						</select>
-					</div>
-					{arrDoctorId && arrDoctorId.length > 0 &&
-						arrDoctorId.map((item, index) => {
-							return (
-								<div className='each-doctor' key={index}>
-									<div className='dt-content-left'>
-										<div className='profile-doctor'>
-											<ProfileDoctor
-												doctorId={item}
-												isShowDescriptionDoctor={true}
-												isShowLinkDetail={true}
-												isShowPrice={false}
-											// dataTime={dataTime}
-											/>
-										</div>
-									</div>
-									<div className='dt-content-right'>
-										<div className='doctor-schedule'>
-											<DoctorSchedule
-												doctorIdFromParent={item}
-											/>
-										</div>
-										<div className='doctor-extra-infor'>
-											<DoctorExtraInfor
-												doctorIdFromParent={item}
-											/>
-										</div>
-
-									</div>
 								</div>
-							)
-						})
-					}
-				</div>
+							}
+						</div>
+						<div className='serach-sp-doctor'>
+							<select onChange={(event) => this.handleOnChangeSelect(event)}>
+								{listProvince && listProvince.length > 0 &&
+									listProvince.map((item, index) => {
+										return (
+											<option key={index} value={item.keyMap}>
+												{language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+											</option>
+										)
+									})
 
-			</div>
+								}
+
+							</select>
+						</div>
+
+						{arrDoctorId && arrDoctorId.length > 0 &&
+							arrDoctorId.map((item, index) => {
+								return (
+									<div className='each-doctor' key={index}>
+										<div className='dt-content-left'>
+											<div className='profile-doctor'>
+												<ProfileDoctor
+													doctorId={item}
+													isShowDescriptionDoctor={true}
+													isShowLinkDetail={true}
+													isShowPrice={false}
+												// dataTime={dataTime}
+												/>
+											</div>
+										</div>
+										<div className='dt-content-right'>
+											<div className='doctor-schedule'>
+												<DoctorSchedule
+													doctorIdFromParent={item}
+												/>
+											</div>
+											<div className='doctor-extra-infor'>
+												<DoctorExtraInfor
+													doctorIdFromParent={item}
+												/>
+											</div>
+
+										</div>
+									</div>
+								)
+							})
+						}
+
+
+					</div>
+
+				</div>
+				<HomeFooter />
+			</>
+
 		);
 	}
 }
