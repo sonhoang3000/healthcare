@@ -134,7 +134,7 @@ class UserManage extends Component {
 					/>
 				}
 
-				<div className="title text-center">Manage users with hoidanIT</div>
+				<div className="title text-center">Quản lý người dùng</div>
 
 				<div className="mx-1">
 					<button

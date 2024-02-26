@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Route, Switch } from 'react-router-dom';
 import ManageSchedule from '../containers/System/Doctor/ManageSchedule';
-import Header from '../containers/Header/Header';
+import HeaderAdmin from '../containers/HeaderAdmin/HeaderAdmin';
 import ManagePatient from '../containers/System/Doctor/ManagePatient';
 class Doctor extends Component {
 
@@ -11,7 +11,7 @@ class Doctor extends Component {
 
 		return (
 			<React.Fragment>
-				{isLoggedIn && <Header />}
+				{isLoggedIn && <HeaderAdmin />}
 				<div className="system-container">
 					<div className="system-list">
 						<Switch>

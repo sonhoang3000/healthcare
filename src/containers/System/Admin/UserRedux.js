@@ -181,7 +181,7 @@ class UserRedux extends Component {
 
         this.setState({
             email: user.email,
-            password: 'Hash code password',
+            password: 'hashpassword',
             firstName: user.firstName,
             lastName: user.lastName,
             phoneNumber: user.phonenumber,
@@ -213,7 +213,7 @@ class UserRedux extends Component {
         return (
             <div className='user-redux-container'>
                 <div className='title'>
-                    Learn React-Redux "hoi dan IT yb channel123123123123"
+                    Thêm mới người dùng
                 </div>
                 <div className="user-redux-body" style={{ margin: "0 120px" }}>
                     <div className="container">

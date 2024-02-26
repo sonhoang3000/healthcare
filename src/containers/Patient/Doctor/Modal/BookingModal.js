@@ -41,7 +41,7 @@ class BookingModal extends Component {
 		let language = this.props.language;
 
 		if (data && data.length > 0) {
-			data.forEach(item => {
+			data.map(item => {
 				let object = {};
 				object.label = language === LANGUAGES.VI ? item.valueVi : item.valueEn;
 				object.value = item.keyMap;

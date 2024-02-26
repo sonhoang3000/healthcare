@@ -37,7 +37,7 @@ class ManageSchedule extends Component {
 		if (prevProps.allScheduleTime !== this.props.allScheduleTime) {
 			let data = this.props.allScheduleTime;
 			if (data && data.length > 0) {
-				data = data.forEach(item => ({ ...item, isSelected: false }))
+				data = data.map(item => ({ ...item, isSelected: false }))
 			}
 			this.setState({
 				rangeTime: data
@@ -49,7 +49,7 @@ class ManageSchedule extends Component {
 		let result = [];
 		let { language } = this.props;
 		if (inputData && inputData.length > 0) {
-			inputData.forEach((item, index) => {
+			inputData.map((item, index) => {
 				let object = {};
 				let labelVi = `${item.lastName} ${item.firstName}`;
 				let labelEn = `${item.firstName} ${item.lastName} `;
@@ -74,7 +74,7 @@ class ManageSchedule extends Component {
 	handleClickBtnTime = (time) => {
 		let { rangeTime } = this.state;
 		if (rangeTime && rangeTime.length > 0) {
-			rangeTime = rangeTime.forEach(item => {
+			rangeTime = rangeTime.map(item => {
 				if (item.id === time.id) item.isSelected = !item.isSelected;
 				return item;
 			})
@@ -104,7 +104,7 @@ class ManageSchedule extends Component {
 		if (rangeTime && rangeTime.length > 0) {
 			let selectedTime = rangeTime.filter(item => item.isSelected === true);
 			if (selectedTime && selectedTime.length > 0) {
-				selectedTime.forEach((schedule, index) => {
+				selectedTime.map((schedule, index) => {
 					let object = {};
 					object.doctorId = selectedDoctor.value;
 					object.date = formatedDate;
@@ -163,7 +163,7 @@ class ManageSchedule extends Component {
 						</div>
 						<div className='col-12 pick-hour-container' >
 							{rangeTime && rangeTime.length > 0 &&
-								rangeTime.forEach((item, index) => {
+								rangeTime.map((item, index) => {
 									return (
 										<button
 											className={item.isSelected === true ? 'btn btn-schedule active' : 'btn btn-schedule'}
