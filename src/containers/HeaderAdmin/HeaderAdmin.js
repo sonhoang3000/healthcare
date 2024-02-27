@@ -14,9 +14,6 @@ class Header extends Component {
             menuApp: []
         }
     }
-    handleChangeLanguage = (language) => {
-        this.props.changeLanguageAppRedux(language)
-    }
 
     componentDidMount() {
         let { userInfo } = this.props;
@@ -75,7 +72,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         processLogout: () => dispatch(actions.processLogout()),
-        changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language))
     };
 };
 

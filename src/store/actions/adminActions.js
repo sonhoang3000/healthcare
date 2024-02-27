@@ -10,7 +10,6 @@ import { toast } from "react-toastify"
 export const fetchGenderStart = () => {
 	return async (dispatch, getState) => {
 		try {
-			dispatch({ type: actionTypes.FETCH_GENDER_START })
 
 			let res = await getAllCodeService("GENDER")
 			if (res && res.errCode === 0) {
@@ -35,25 +34,6 @@ export const fetchGenderFailed = () => ({
 	type: actionTypes.FETCH_GENDER_FAILED
 })
 
-export const fetchPositionSuccess = (positionData) => ({
-	type: actionTypes.FETCH_POSITION_SUCCESS,
-	data: positionData,
-})
-
-export const fetchPositionFailed = () => ({
-	type: actionTypes.FETCH_POSITION_FAILED,
-})
-
-
-export const fetchRoleSuccess = (roleData) => ({
-	type: actionTypes.FETCH_ROLE_SUCCESS,
-	data: roleData
-})
-
-export const fetchRoleFailed = () => ({
-	type: actionTypes.FETCH_ROLE_FAILED
-})
-
 export const fetchPositionStart = () => {
 	return async (dispatch, getState) => {
 		try {
@@ -71,6 +51,14 @@ export const fetchPositionStart = () => {
 
 }
 
+export const fetchPositionSuccess = (positionData) => ({
+	type: actionTypes.FETCH_POSITION_SUCCESS,
+	data: positionData,
+})
+
+export const fetchPositionFailed = () => ({
+	type: actionTypes.FETCH_POSITION_FAILED,
+})
 
 export const fetchRoleStart = () => {
 	return async (dispatch, getState) => {
@@ -88,6 +76,15 @@ export const fetchRoleStart = () => {
 	}
 
 }
+
+export const fetchRoleSuccess = (roleData) => ({
+	type: actionTypes.FETCH_ROLE_SUCCESS,
+	data: roleData
+})
+
+export const fetchRoleFailed = () => ({
+	type: actionTypes.FETCH_ROLE_FAILED
+})
 
 export const createNewUser = (data) => {
 	return async (dispatch, getState) => {
@@ -114,7 +111,6 @@ export const saveUserSuccess = () => ({
 export const saveUserFailed = () => ({
 	type: actionTypes.CREATE_USER_FAILED
 })
-
 
 export const fetchAllUsersStart = () => {
 	return async (dispatch, getState) => {
@@ -143,7 +139,6 @@ export const fetchAllUsersFailed = () => ({
 	type: actionTypes.FETCH_ALL_USERS_FAILED,
 })
 
-
 export const deleteAUser = (userId) => {
 	return async (dispatch, getState) => {
 		try {
@@ -171,7 +166,6 @@ export const deleteUserSuccess = () => ({
 export const deleteUserFailed = () => ({
 	type: actionTypes.DELETE_USER_FAILED
 })
-
 
 export const editAUser = (data) => {
 	return async (dispatch, getState) => {
@@ -303,8 +297,6 @@ export const fetchAllScheduleTime = () => {
 export const getRequiredDoctorInfor = () => {
 	return async (dispatch, getState) => {
 		try {
-			dispatch({ type: actionTypes.FETCH_REQUIRED_DOCTOR_INFOR_START })
-
 			let resPrice = await getAllCodeService("PRICE")
 			let resPayment = await getAllCodeService("PAYMENT")
 			let resProvince = await getAllCodeService("PROVINCE")

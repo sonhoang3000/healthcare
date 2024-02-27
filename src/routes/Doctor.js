@@ -28,7 +28,6 @@ class Doctor extends Component {
 
 const mapStateToProps = state => {
 	return {
-		systemMenuPath: state.app.systemMenuPath,
 		isLoggedIn: state.user.isLoggedIn,
 	};
 };

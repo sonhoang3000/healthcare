@@ -1,10 +1,7 @@
 import actionTypes from '../actions/actionTypes';
 
 const initContentOfConfirmModal = {
-    isOpen: false,
-    messageId: "",
-    handleFunc: null,
-    dataFunc: null
+    isOpen: false
 }
 
 const initialState = {
@@ -32,12 +29,6 @@ const appReducer = (state = initialState, action) => {
                 }
             }
 
-        case actionTypes.CHANGE_LANGUAGE:
-            console.log("hoidanit CHANGE_LANGUAGE", action)
-            return {
-                ...state,
-                language: action.language,
-            }
         default:
             return state;
     }
