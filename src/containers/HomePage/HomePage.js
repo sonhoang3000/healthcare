@@ -20,12 +20,12 @@ class HomePage extends Component {
 			infinite: false,
 			speed: 500,
 			slidesToShow: 4,
-			slidesToScroll: 1,
+			slidesToScroll: 2,
 		};
 		return (
 			<div>
 				<HomeHeader isShowBanner={true} />
-				<Specialty settings={settings} />
+				<Specialty />
 				<MedicalFacility settings={settings} />
 				<OutStandingDoctor settings={settings} />
 				<HandBook settings={settings} />

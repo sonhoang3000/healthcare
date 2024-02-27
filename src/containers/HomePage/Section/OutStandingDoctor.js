@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
 import * as actions from '../../../store/actions';
-import { LANGUAGES } from '../../../utils';
 import { withRouter } from 'react-router';
 class OutStandingDoctor extends Component {
 
@@ -34,17 +32,16 @@ class OutStandingDoctor extends Component {
 
 	render() {
 		let arrDoctors = this.state.arrDoctors;
-		let { language } = this.props;
-		// arrDoctors = arrDoctors.concat(arrDoctors).concat(arrDoctors)
+
 		return (
 			<div className="section-share section-outstanding-doctor ">
 				<div className="section-container">
 					<div className="section-header">
 						<span className="title-section">
-							<FormattedMessage id="homepage.outstanding-doctor" />
+							Bác sĩ nổi bật
 						</span>
 						<button className="btn-section">
-							<FormattedMessage id="homepage.more-info" />
+							xem thêm
 						</button>
 					</div>
 
@@ -57,7 +54,6 @@ class OutStandingDoctor extends Component {
 										imageBase64 = new Buffer(item.image, 'base64').toString('binary');
 									}
 									let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName} `;
-									let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName} `;
 									return (
 										<div className="section-customize" key={index} onClick={() => this.handleViewDetailDoctor(item)}  >
 											<div className='customize-border'>
@@ -68,8 +64,8 @@ class OutStandingDoctor extends Component {
 
 												</div>
 												<div className='position text-center'>
-													<div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
-													<div>Cơ Xương Khớp </div>
+													<div className='infor-doctor-p' >{nameVi}</div>
+													{/* <div>Cơ Xương Khớp </div> */}
 												</div>
 											</div>
 										</div>
@@ -89,7 +85,6 @@ class OutStandingDoctor extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 		isLoggedIn: state.user.isLoggedIn,
 		topDoctorsRedux: state.admin.topDoctors
 	};

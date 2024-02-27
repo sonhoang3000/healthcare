@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import HomeHeader from '../../HomePage/HomeHeader';
 import './DetailDoctor.scss';
 import { getDetailInforDoctor } from '../../../services/userService';
-import { LANGUAGES } from '../../../utils';
 import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfor from './DoctorExtraInfor';
 import HomeFooter from "../../HomePage/HomeFooter"
@@ -39,13 +38,11 @@ class DetailDoctor extends Component {
       }
 
       render() {
-            let { language } = this.props;
 
             let { detailDoctor } = this.state;
-            let nameVi = '', nameEn = '';
+            let nameVi = '';
             if (detailDoctor && detailDoctor.positionData) {
                   nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName} `;
-                  nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName} `;
             }
 
             return (
@@ -62,7 +59,7 @@ class DetailDoctor extends Component {
                                     </div>
                                     <div className='content-right'>
                                           <div className='up'>
-                                                {language === LANGUAGES.VI ? nameVi : nameEn}
+                                                {nameVi}
                                           </div>
                                           <div className='down'>
                                                 {detailDoctor && detailDoctor.Markdown

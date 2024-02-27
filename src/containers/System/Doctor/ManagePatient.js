@@ -4,7 +4,6 @@ import './ManagePatient.scss';
 import DatePicker from '../../../components/Input/DatePicker';
 import { getAllPatientForDoctor, postSendRemedy } from '../../../services/userService';
 import moment from 'moment';
-import { LANGUAGES } from '../../../utils';
 import RemedyModal from './RemedyModal';
 import { toast } from 'react-toastify';
 import LoadingOverlay from 'react-loading-overlay';
@@ -39,13 +38,6 @@ class ManagePatient extends Component {
 				dataPatient: res.data
 			})
 		}
-	}
-
-	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-
-		}
-
 	}
 
 	handleOnChangeDatePicker = (date) => {
@@ -111,7 +103,6 @@ class ManagePatient extends Component {
 
 	render() {
 		let { dataPatient, isOpenRemedyModal, dataModal } = this.state
-		let { language } = this.props
 		return (
 			<>
 				<LoadingOverlay
@@ -145,10 +136,8 @@ class ManagePatient extends Component {
 										</tr>
 										{dataPatient && dataPatient.length > 0 ?
 											dataPatient.map((item, index) => {
-												let time = language === LANGUAGES.VI ?
-													item.timeTypeDataPatient.valueVi : item.timeTypeDataPatient.valueEn;
-												let gender = language === LANGUAGES.VI ?
-													item.patientData.genderData.valueVi : item.patientData.genderData.valueEn;
+												let time = item.timeTypeDataPatient.valueVi ? item.timeTypeDataPatient.valueVi : "";
+												let gender = item.patientData.genderData.valueVi ? item.patientData.genderData.valueVi : "";
 												return (
 													<tr key={index} >
 														<td>{index + 1}</td>

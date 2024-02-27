@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { push } from "connected-react-router";
 import * as actions from "../../store/actions";
 
 import "./Login.scss";
@@ -145,8 +144,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		navigate: (path) => dispatch(push(path)),
-		// userLoginFail: () => dispatch(actions.adminLoginFail()),
 		userLoginSuccess: (userInfor) => dispatch(actions.userLoginSuccess(userInfor)),
 	};
 };

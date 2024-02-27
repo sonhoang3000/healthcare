@@ -7,7 +7,6 @@ import DoctorExtraInfor from '../Doctor/DoctorExtraInfor';
 import ProfileDoctor from '../Doctor/ProfileDoctor';
 import { getAllDetailSpecialtyById, getAllCodeService } from '../../../services/userService';
 import _ from 'lodash';
-import { LANGUAGES } from '../../../utils';
 import HomeFooter from "../../HomePage/HomeFooter"
 import '../../HomePage/HomePage.scss';
 class DetailSpecialty extends Component {
@@ -38,7 +37,7 @@ class DetailSpecialty extends Component {
 				if (data && !_.isEmpty(res.data)) {
 					let arr = data.doctorSpecialty;
 					if (arr && arr.length > 0) {
-						arr.map(item => {
+						arr.forEach(item => {
 							arrDoctorId.push(item.doctorId)
 						})
 
@@ -65,13 +64,6 @@ class DetailSpecialty extends Component {
 		}
 	}
 
-	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-
-		}
-
-	}
-
 	handleOnChangeSelect = async (event) => {
 		if (this.props.match && this.props.match.params && this.props.match.params.id) {
 			let id = this.props.match.params.id;
@@ -88,7 +80,7 @@ class DetailSpecialty extends Component {
 				if (data && !_.isEmpty(res.data)) {
 					let arr = data.doctorSpecialty;
 					if (arr && arr.length > 0) {
-						arr.map(item => {
+						arr.forEach(item => {
 							arrDoctorId.push(item.doctorId)
 						})
 					}
@@ -106,7 +98,6 @@ class DetailSpecialty extends Component {
 	render() {
 		let { arrDoctorId, dataDetailSpecialty, listProvince } = this.state
 		console.log('check state', this.state)
-		let { language } = this.props;
 
 		return (
 			<>
@@ -128,7 +119,7 @@ class DetailSpecialty extends Component {
 									listProvince.map((item, index) => {
 										return (
 											<option key={index} value={item.keyMap}>
-												{language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+												{item.valueVi ? item.valueVi : ""}
 											</option>
 										)
 									})
@@ -149,7 +140,6 @@ class DetailSpecialty extends Component {
 													isShowDescriptionDoctor={true}
 													isShowLinkDetail={true}
 													isShowPrice={false}
-												// dataTime={dataTime}
 												/>
 											</div>
 										</div>
@@ -184,7 +174,6 @@ class DetailSpecialty extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 

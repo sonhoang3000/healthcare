@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import './ManageSchedule.scss';
-import { FormattedMessage } from "react-intl";
 import Select from 'react-select';
 import * as actions from "../../../store/actions";
-import { LANGUAGES } from '../../../utils';
 import DatePicker from '../../../components/Input/DatePicker';
 import { toast } from "react-toastify"
 import _ from 'lodash';
@@ -47,13 +45,11 @@ class ManageSchedule extends Component {
 
 	buildDataInputSelect = (inputData) => {
 		let result = [];
-		let { language } = this.props;
 		if (inputData && inputData.length > 0) {
-			inputData.map((item, index) => {
+			inputData.forEach((item, index) => {
 				let object = {};
 				let labelVi = `${item.lastName} ${item.firstName}`;
-				let labelEn = `${item.firstName} ${item.lastName} `;
-				object.label = language === LANGUAGES.VI ? labelVi : labelEn;
+				object.label = labelVi ? labelVi : "";
 				object.value = item.id;
 				result.push(object)
 			})
@@ -97,14 +93,12 @@ class ManageSchedule extends Component {
 			return;
 		}
 
-		// let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
-		// = moment(currentDate).unix();
 		let formatedDate = new Date(currentDate).getTime();
 
 		if (rangeTime && rangeTime.length > 0) {
 			let selectedTime = rangeTime.filter(item => item.isSelected === true);
 			if (selectedTime && selectedTime.length > 0) {
-				selectedTime.map((schedule, index) => {
+				selectedTime.forEach((schedule, index) => {
 					let object = {};
 					object.doctorId = selectedDoctor.value;
 					object.date = formatedDate;
@@ -135,17 +129,16 @@ class ManageSchedule extends Component {
 
 	render() {
 		let { rangeTime } = this.state;
-		let { language } = this.props;
 		let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
 		return (
 			<div className='manage-schedule-container'>
 				<div className='m-s-title'>
-					<FormattedMessage id="manage-schedule.title" />
+					Quản lý kế hoạch khám bệnh của bác sĩ
 				</div>
 				<div className='container'>
 					<div className='row'>
 						<div className='col-6 form-group'>
-							<label><FormattedMessage id="manage-schedule.choose-doctor" /></label>
+							<label>Chọn bác sĩ</label>
 							<Select
 								value={this.state.selectedDoctor}
 								onChange={this.handleChangeSelect}
@@ -153,7 +146,7 @@ class ManageSchedule extends Component {
 							/>
 						</div>
 						<div className='col-6 form-group'>
-							<label><FormattedMessage id="manage-schedule.choose-date" /></label>
+							<label>Chọn ngày</label>
 							<DatePicker
 								onChange={this.handleOnChangeDatePicker}
 								className="form-control"
@@ -169,7 +162,7 @@ class ManageSchedule extends Component {
 											className={item.isSelected === true ? 'btn btn-schedule active' : 'btn btn-schedule'}
 											onClick={() => this.handleClickBtnTime(item)}
 											key={index}>
-											{language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+											{item.valueVi ? item.valueVi : ""}
 										</button>
 									)
 								})
@@ -179,7 +172,7 @@ class ManageSchedule extends Component {
 							<button className='btn btn-primary btn-save-schedule'
 								onClick={() => this.handSaveSchedule()}
 							>
-								<FormattedMessage id="manage-schedule.save" />
+								Lưu thông tin
 							</button>
 						</div>
 					</div>
@@ -193,7 +186,6 @@ class ManageSchedule extends Component {
 const mapStateToProps = state => {
 	return {
 		isLoggedIn: state.user.isLoggedIn,
-		language: state.app.language,
 		allDoctors: state.admin.allDoctors,
 		allScheduleTime: state.admin.allScheduleTime,
 	};

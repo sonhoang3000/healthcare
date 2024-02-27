@@ -51,7 +51,7 @@ class RemedyModal extends Component {
 	}
 
 	render() {
-		let { isOpenModal, closeRemedyModal, dataModal, sendRemedy } = this.props;
+		let { isOpenModal, closeRemedyModal } = this.props;
 
 		return (
 			<Modal
@@ -96,8 +96,6 @@ class RemedyModal extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
-		genders: state.admin.genders,
 	};
 };
 

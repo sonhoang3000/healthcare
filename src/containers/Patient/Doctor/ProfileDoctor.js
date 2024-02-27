@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
 import './ProfileDoctor.scss';
 import { getProfileDoctorById } from '../../../services/userService';
-import { LANGUAGES } from '../../../utils';
 import NumberFormat from 'react-number-format';
 import _ from 'lodash';
 import moment from 'moment';
@@ -38,35 +36,21 @@ class ProfileDoctor extends Component {
 	}
 
 	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
 
-		}
-
-		// if (this.props.doctorId !== prevProps.doctorId) {
-		//       this.getInforDoctor(this.props.doctorId)
-		// }
-		// if (this.props.doctorId !== prevProps.doctorId) {
-		// 	let data = await this.getInforDoctor(this.props.doctorId);
-		// 	this.setState({
-		// 	  dataProfile: data,
-		// 	});
-		//     }
 	}
 
 	renderTimeBooking = (dataTime) => {
-		let { language } = this.props;
 		if (dataTime && !_.isEmpty(dataTime)) {
-			let time = language === LANGUAGES.VI ?
-				dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn;
+			let time =
+				dataTime.timeTypeData.valueVi ? dataTime.timeTypeData.valueVi : "";
 
-			let date = language === LANGUAGES.VI ?
-				moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
-				:
-				moment.unix(+dataTime.date / 1000).locale('en').format('ddd - MM/DD/YYYY')
+			let date = moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
+				? moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
+				: ""
 			return (
 				<>
 					<div>{time}  {date}</div>
-					<div><FormattedMessage id="patient.booking-modal.priceBooking" /></div>
+					<div>Miễn phí đặt lịch</div>
 				</>
 			)
 		}
@@ -76,15 +60,14 @@ class ProfileDoctor extends Component {
 
 	render() {
 		let { dataProfile } = this.state
-		let { language, isShowDescriptionDoctor,
+		let { isShowDescriptionDoctor,
 			dataTime, isShowPrice, isShowLinkDetail,
 			doctorId
 		} = this.props
 
-		let nameVi = '', nameEn = '';
+		let nameVi = '';
 		if (dataProfile && dataProfile.positionData) {
 			nameVi = `${dataProfile.positionData.valueVi}, ${dataProfile.lastName} ${dataProfile.firstName} `;
-			nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.firstName} ${dataProfile.lastName} `;
 		}
 		return (
 			<div className='profile-doctor-container'>
@@ -92,11 +75,10 @@ class ProfileDoctor extends Component {
 					<div
 						className='content-left'
 						style={{ backgroundImage: `url(${dataProfile && dataProfile.image ? dataProfile.image : ''})` }} >
-
 					</div>
 					<div className='content-right'>
 						<div className='up'>
-							{language === LANGUAGES.VI ? nameVi : nameEn}
+							{nameVi ? nameVi : ""}
 						</div>
 						<div className='down'>
 							{isShowDescriptionDoctor === true ?
@@ -129,8 +111,8 @@ class ProfileDoctor extends Component {
 
 				{isShowPrice === true &&
 					<div className='price'>
-						<FormattedMessage id="patient.booking-modal.price" />
-						{dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI &&
+						Giá khám:
+						{dataProfile && dataProfile.Doctor_Infor &&
 							<NumberFormat
 								className='currency'
 								value={dataProfile.Doctor_Infor.priceTypeData.valueVi}
@@ -140,15 +122,6 @@ class ProfileDoctor extends Component {
 							/>
 						}
 
-						{dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.EN &&
-							<NumberFormat
-								className='currency'
-								value={dataProfile.Doctor_Infor.priceTypeData.valueEn}
-								displayType={'text'}
-								thousandSeparator={true}
-								suffix={'$'}
-							/>
-						}
 					</div>
 				}
 
@@ -159,7 +132,6 @@ class ProfileDoctor extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 

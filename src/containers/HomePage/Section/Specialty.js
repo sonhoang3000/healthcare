@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Specialty.scss";
-import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
 import { getAllSpecialty } from '../../../services/userService';
 import { withRouter } from 'react-router';
@@ -30,30 +29,36 @@ class Specialty extends Component {
 	}
 
 	render() {
+		let settings = {
+			dots: false,
+			infinite: false,
+			speed: 500,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+		};
 		let { dataSpecialty } = this.state;
 		return (
 			<div className="section-share section-specialty">
 				<div className="section-container">
 					<div className="section-header">
-						<span className="title-section"><FormattedMessage id="homepage.speciality-popular" /></span>
-						<button className="btn-section"><FormattedMessage id="homepage.more-info" /></button>
+						<span className="title-section">Chuyên khoa phổ biến</span>
+						<button className="btn-section">xem thêm</button>
 					</div>
 
 					<div className="section-body">
-						<Slider {...this.props.settings}>
+						<Slider {...settings}>
 							{dataSpecialty && dataSpecialty.length > 0 &&
 								dataSpecialty.map((item, index) => {
 									return (
 										<div
 											onClick={() => this.handleViewDetailSpecialty(item)}
 											className="section-customize specialty-child"
-											key={index}>
+											key={index}
+										>
 											<div
 												className="bg-image section-specialty"
 												style={{ backgroundImage: `url(${item.image})` }}
 											/>
-
-
 											<div className="specialty-name">{item.name}</div>
 										</div>
 									)

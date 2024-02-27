@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import './DoctorSchedule.scss';
 import moment from 'moment';
-import localization from 'moment/locale/vi';
-import { LANGUAGES } from '../../../utils';
+// import localization from 'moment/locale/vi';
 import { getScheduleDoctorByDate } from '../../../services/userService';
-import { FormattedMessage } from "react-intl";
 import BookingModal from './Modal/BookingModal';
 class DoctorSchedule extends Component {
 
@@ -45,24 +43,15 @@ class DoctorSchedule extends Component {
 		let allDays = [];
 		for (let i = 0; i < 7; i++) {
 			let object = {};
-			if (language === LANGUAGES.VI) {
-				if (i === 0) {
-					let ddMM = moment(new Date()).format('DD/MM');
-					let today = `Hôm nay - ${ddMM}`;
-					object.label = today;
-				} else {
-					let labelVi = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
-					object.label = this.capitalizeFirstLetter(labelVi)
-				}
+			if (i === 0) {
+				let ddMM = moment(new Date()).format('DD/MM');
+				let today = `Hôm nay - ${ddMM}`;
+				object.label = today;
 			} else {
-				if (i === 0) {
-					let ddMM = moment(new Date()).format('DD/MM');
-					let today = `Today - ${ddMM}`;
-					object.label = today;
-				} else {
-					object.label = moment(new Date()).add(i, 'days').locale('en').format("ddd - DD/MM");
-				}
+				let labelVi = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
+				object.label = this.capitalizeFirstLetter(labelVi)
 			}
+
 			object.value = moment(new Date()).add(i, 'days').startOf('day').valueOf();
 			allDays.push(object);
 		}
@@ -115,7 +104,6 @@ class DoctorSchedule extends Component {
 
 	render() {
 		let { allDays, allAvalableTime, isOpenModalBooking, dataScheduleTimeModal } = this.state;
-		let { language } = this.props;
 		return (
 			<>
 				<div className='doctor-schedule-container'>
@@ -137,7 +125,7 @@ class DoctorSchedule extends Component {
 					<div className='all-available-time'>
 						<div className='text-calendar'>
 							<i className='fas fa-calendar-alt'>
-								<span><FormattedMessage id="patient.detail-doctor.schedule" /></span>
+								<span>Lịch khám</span>
 							</i>
 						</div>
 						<div className='time-content'>
@@ -145,12 +133,12 @@ class DoctorSchedule extends Component {
 								<>
 									<div className='time-content-btns'>
 										{allAvalableTime.map((item, index) => {
-											let timeDisplay = language === LANGUAGES.VI ?
-												item.timeTypeData.valueVi : item.timeTypeData.valueEn;
+											let timeDisplay =
+												item.timeTypeData.valueVi ? item.timeTypeData.valueVi : "";
 											return (
 												<button
 													key={index}
-													className={language === LANGUAGES.VI ? 'btn-vie' : 'btn-en'}
+													className='btn-vie'
 													onClick={() => this.handleClickScheduleTime(item)}
 												>
 													{timeDisplay}
@@ -162,15 +150,15 @@ class DoctorSchedule extends Component {
 
 									<div className='book-free'>
 										<span>
-											<FormattedMessage id="patient.detail-doctor.choose" />
+											Chọn
 											<i className='far fa-hand-point-up'></i>
-											<FormattedMessage id="patient.detail-doctor.book-free" />
+											và đặt (miễn phí)
 										</span>
 									</div>
 								</>
 								:
 								<div className='no-schedule'>
-									<FormattedMessage id="patient.detail-doctor.no-schedule" />
+									Bác sĩ không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác
 								</div>
 							}
 
@@ -191,7 +179,6 @@ class DoctorSchedule extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 

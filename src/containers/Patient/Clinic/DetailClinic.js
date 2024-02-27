@@ -34,7 +34,7 @@ class DetailClinic extends Component {
 				if (data && !_.isEmpty(res.data)) {
 					let arr = data.doctorClinic;
 					if (arr && arr.length > 0) {
-						arr.map(item => {
+						arr.forEach(item => {
 							arrDoctorId.push(item.doctorId)
 						})
 
@@ -87,7 +87,6 @@ class DetailClinic extends Component {
 													isShowDescriptionDoctor={true}
 													isShowLinkDetail={true}
 													isShowPrice={false}
-												// dataTime={dataTime}
 												/>
 											</div>
 										</div>

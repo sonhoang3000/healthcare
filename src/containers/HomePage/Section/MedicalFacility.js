@@ -30,6 +30,13 @@ class MedicalFacility extends Component {
 	}
 
 	render() {
+		let settings = {
+			dots: false,
+			infinite: false,
+			speed: 500,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+		};
 		let { dataClinics } = this.state
 		return (
 			<div className="section-share section-medical-facility ">
@@ -40,7 +47,7 @@ class MedicalFacility extends Component {
 					</div>
 
 					<div className="section-body">
-						<Slider {...this.props.settings}>
+						<Slider {...settings}>
 							{dataClinics && dataClinics.length > 0 &&
 								dataClinics.map((item, index) => {
 									return (

@@ -6,9 +6,6 @@ import {
 	getAllSpecialty, getAllClinic
 } from '../../services/userService';
 import { toast } from "react-toastify"
-// export const fetchGenderStart = () => ({
-//       type: actionTypes.FETCH_GENDER_START
-// })
 
 export const fetchGenderStart = () => {
 	return async (dispatch, getState) => {
