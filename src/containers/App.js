@@ -95,7 +95,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		started: state.app.started,
 		isLoggedIn: state.user.isLoggedIn,
 	};
 };

@@ -5,7 +5,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 class HomeFooter extends Component {
 
 	render() {
-		console.log('check props', this.props)
 		return (
 			<div className="home-footer">
 
@@ -128,9 +127,7 @@ class HomeFooter extends Component {
 }
 
 const mapStateToProps = state => {
-	console.log('check mapStateToProps', state)
 	return {
-		isLoggedInHomeFooter: state.user.isLoggedIn
 	};
 };
 

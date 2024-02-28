@@ -8,7 +8,6 @@ import { createStateSyncMiddleware } from 'redux-state-sync';
 import { persistStore } from 'redux-persist';
 
 import createRootReducer from './store/reducers/rootReducer';
-import actionTypes from './store/actions/actionTypes';
 
 const environment = process.env.NODE_ENV || "development";
 let isDevelopment = environment === "development";
@@ -21,7 +20,6 @@ export const history = createBrowserHistory({ basename: process.env.REACT_APP_RO
 
 const reduxStateSyncConfig = {
     whitelist: [
-        actionTypes.APP_START_UP_COMPLETE,
     ]
 }
 

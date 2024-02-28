@@ -21,18 +21,6 @@ class ManageSpecialty extends Component {
 		}
 	}
 
-	async componentDidMount() {
-
-
-	}
-
-	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-
-		}
-
-	}
-
 	handleOnchangeInput = (event, id) => {
 		let stateCopy = { ...this.state };
 		stateCopy[id] = event.target.value;
@@ -121,7 +109,6 @@ class ManageSpecialty extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 

@@ -39,13 +39,6 @@ class VerifyEmail extends Component {
 		}
 	}
 
-	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-
-		}
-
-	}
-
 	render() {
 		let { statusVerify, errCode } = this.state;
 		console.log('check state', this.state)
@@ -75,7 +68,6 @@ class VerifyEmail extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 

@@ -49,13 +49,6 @@ class DetailClinic extends Component {
 		}
 	}
 
-	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-
-		}
-
-	}
-
 	render() {
 		let { arrDoctorId, dataDetailClinic } = this.state
 		return (
@@ -119,7 +112,6 @@ class DetailClinic extends Component {
 
 const mapStateToProps = state => {
 	return {
-		language: state.app.language,
 	};
 };
 

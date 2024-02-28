@@ -85,7 +85,6 @@ class OutStandingDoctor extends Component {
 
 const mapStateToProps = state => {
 	return {
-		isLoggedIn: state.user.isLoggedIn,
 		topDoctorsRedux: state.admin.topDoctors
 	};
 };

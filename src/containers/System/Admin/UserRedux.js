@@ -207,7 +207,6 @@ class UserRedux extends Component {
             address, gender, position, role
         } = this.state;
 
-        console.log('check state', this.state)
         return (
             <div className='user-redux-container'>
                 <div className='title'>
