@@ -30,11 +30,6 @@ class HomeHeader extends Component {
 		}
 	}
 
-	handleMorePackage = () => {
-		if (this.props.history) {
-			this.props.history.push(`/more-package`)
-		}
-	}
 
 	render() {
 		return (
@@ -58,7 +53,7 @@ class HomeHeader extends Component {
 								<div> <b>Bác sĩ</b></div>
 								<div className="sub-title">Chọn bác sĩ giỏi</div>
 							</div>
-							<div className="child-content" onClick={() => this.handleMorePackage()}>
+							<div className="child-content" >
 								<div> <b>Gói khám</b></div>
 								<div className="sub-title">Khám sức khoẻ tổng quát</div>
 							</div>
