@@ -95,12 +95,32 @@ const createNewClinic = (data) => {
   return axios.post('/api/create-new-clinic', data)
 }
 
+const createNewPackage = (data) => {
+  return axios.post('/api/create-new-package', data)
+}
+
+const getAllPackage = () => {
+  return axios.get(`/api/get-all-package`)
+}
+
 const getAllPatientForDoctor = (data) => {
   return axios.get(`/api/get-list-patient-for-doctor?doctorId=${data.doctorId}&date=${data.date}`)
 }
 
+const getDetailPackageServiceById = (data) => {
+  return axios.get(`/api/get-detail-package-by-id?id=${data.id}`)
+}
+
 const postSendRemedy = (data) => {
   return axios.post('/api/send-remedy', data)
+}
+
+const saveBulkSchedulePackage = (data) => {
+  return axios.post('/api/bulk-create-schedule-package', data)
+}
+
+const getSchedulePackgeByDate = (packageId, date) => {
+  return axios.get(`/api/get-schedule-package-by-date?packageId=${packageId}&date=${date}`)
 }
 
 export {
@@ -115,5 +135,8 @@ export {
   postVerifyBookAppointment, createNewSpecialty,
   getAllSpecialty, getAllDetailSpecialtyById,
   createNewClinic, getAllClinic, getDetailClinicById,
-  getAllPatientForDoctor, postSendRemedy
+  getAllPatientForDoctor, postSendRemedy,
+
+  createNewPackage, getAllPackage, getDetailPackageServiceById,
+  saveBulkSchedulePackage, getSchedulePackgeByDate
 };

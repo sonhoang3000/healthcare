@@ -32,7 +32,7 @@ class DetailClinic extends Component {
 				let data = res.data;
 				let arrDoctorId = [];
 				if (data && !_.isEmpty(res.data)) {
-					let arr = data.doctorClinic;
+					let arr = data;
 					if (arr && arr.length > 0) {
 						arr.forEach(item => {
 							arrDoctorId.push(item.doctorId)

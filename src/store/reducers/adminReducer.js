@@ -1,7 +1,6 @@
 import actionTypes from "../actions/actionTypes";
 
 const initialState = {
-      isLoadingGender: false,
       genders: [],
       roles: [],
       positions: [],
@@ -11,6 +10,9 @@ const initialState = {
       allScheduleTime: [],
 
       allRequiredDoctorInfor: [],
+
+      allPackages: [],
+      allSchedulePackageTime: [],
 };
 
 const adminReducer = (state = initialState, action) => {
@@ -18,13 +20,11 @@ const adminReducer = (state = initialState, action) => {
 
             case actionTypes.FETCH_GENDER_SUCCESS:
                   state.genders = action.data;
-                  state.isLoadingGender = false;
                   return {
                         ...state,
                   };
 
             case actionTypes.FETCH_GENDER_FAILED:
-                  state.isLoadingGender = false;
                   state.genders = [];
                   return {
                         ...state,
@@ -99,6 +99,30 @@ const adminReducer = (state = initialState, action) => {
 
             case actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED:
                   state.allScheduleTime = [];
+                  return {
+                        ...state,
+                  };
+
+            case actionTypes.FETCH_ALL_PACKAGES_SUCCESS:
+                  state.allPackages = action.dataAllPackage;
+                  return {
+                        ...state,
+                  };
+
+            case actionTypes.FETCH_ALL_PACKAGES_FAILED:
+                  state.allPackages = [];
+                  return {
+                        ...state,
+                  };
+
+            case actionTypes.FETCH_ALLCODE_SCHEDULE_PACKAGE_TIME_SUCCESS:
+                  state.allSchedulePackageTime = action.dataTime;
+                  return {
+                        ...state,
+                  };
+
+            case actionTypes.FETCH_ALLCODE_SCHEDULE_PACKAGE_TIME_FAILED:
+                  state.allSchedulePackageTime = [];
                   return {
                         ...state,
                   };

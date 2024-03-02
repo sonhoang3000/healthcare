@@ -43,6 +43,17 @@ export const adminMenu = [
             },
         ]
     },
+    { //Quản lý cẩm nang
+        name: 'menu.admin.package',
+        menus: [
+            {
+                name: 'menu.admin.manage-package', link: '/system/manage-package'
+            },
+            { //Quản lý kế hoạch khám bệnh cua goi kham tong quat
+                name: 'menu.admin.manage-schedule-package', link: '/system/manage-schedule-package'
+            },
+        ]
+    },
 ];
 
 export const doctorMenu = [

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import './DoctorSchedule.scss';
 import moment from 'moment';
-// import localization from 'moment/locale/vi';
+import localization from 'moment/locale/vi';
 import { getScheduleDoctorByDate } from '../../../services/userService';
 import BookingModal from './Modal/BookingModal';
 class DoctorSchedule extends Component {
@@ -18,9 +18,7 @@ class DoctorSchedule extends Component {
 	}
 
 	async componentDidMount() {
-		let { language } = this.props;
-		let allDays = this.getArrDays(language);
-
+		let allDays = this.getArrDays();
 		if (this.props.doctorIdFromParent) {
 			let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
 			this.setState({
@@ -31,15 +29,13 @@ class DoctorSchedule extends Component {
 		this.setState({
 			allDays: allDays,
 		})
-
-
 	}
 
 	capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 
-	getArrDays = (language) => {
+	getArrDays = () => {
 		let allDays = [];
 		for (let i = 0; i < 7; i++) {
 			let object = {};
@@ -59,14 +55,8 @@ class DoctorSchedule extends Component {
 	}
 
 	async componentDidUpdate(prevProps, prevState, snapshot) {
-		if (this.props.language !== prevProps.language) {
-			let allDays = this.getArrDays(this.props.language);
-			this.setState({
-				allDays: allDays
-			})
-		}
 		if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
-			let allDays = this.getArrDays(this.props.language);
+			let allDays = this.getArrDays();
 			let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
 			this.setState({
 				allAvalableTime: res.data ? res.data : []
@@ -85,7 +75,6 @@ class DoctorSchedule extends Component {
 					allAvalableTime: res.data ? res.data : []
 				})
 			}
-			console.log('schedule from react res:', res)
 		}
 	}
 

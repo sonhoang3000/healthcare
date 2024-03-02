@@ -3,7 +3,7 @@ import {
 	getAllCodeService, createNewUserService, getAllUsers,
 	deleteUserService, editUserService, getTopDoctorHomeService,
 	getAllDoctors, saveDetailDoctorService,
-	getAllSpecialty, getAllClinic
+	getAllSpecialty, getAllClinic, getAllPackage
 } from '../../services/userService';
 import { toast } from "react-toastify"
 
@@ -242,6 +242,30 @@ export const fetchAllDoctors = () => {
 	}
 }
 
+export const fetchAllPackages = () => {
+	return async (dispatch, getState) => {
+		try {
+			let res = await getAllPackage();
+			if (res && res.errCode === 0) {
+				dispatch({
+					type: actionTypes.FETCH_ALL_PACKAGES_SUCCESS,
+					dataAllPackage: res.data
+				})
+			}
+			else {
+				dispatch({
+					type: actionTypes.FETCH_ALL_PACKAGES_FAILED,
+				})
+			}
+		} catch (e) {
+			console.log('FETCH_ALL_PACKAGES_FAILED error: ', e)
+			dispatch({
+				type: actionTypes.FETCH_ALL_PACKAGES_FAILED,
+			})
+		}
+	}
+}
+
 export const saveDetailDoctor = (data) => {
 	return async (dispatch, getState) => {
 		try {
@@ -288,6 +312,30 @@ export const fetchAllScheduleTime = () => {
 			console.log('FETCH_ALLCODE_SCHEDULE_TIME_FAILED error: ', e)
 			dispatch({
 				type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+			})
+		}
+	}
+}
+
+export const fetchAllSchedulePackageTime = () => {
+	return async (dispatch, getState) => {
+		try {
+			let res = await getAllCodeService('TIME');
+			if (res && res.errCode === 0) {
+				dispatch({
+					type: actionTypes.FETCH_ALLCODE_SCHEDULE_PACKAGE_TIME_SUCCESS,
+					dataTime: res.data
+				})
+			}
+			else {
+				dispatch({
+					type: actionTypes.FETCH_ALLCODE_SCHEDULE_PACKAGE_TIME_FAILED,
+				})
+			}
+		} catch (e) {
+			console.log('FETCH_ALLCODE_SCHEDULE_PACKAGE_TIME_FAILED error: ', e)
+			dispatch({
+				type: actionTypes.FETCH_ALLCODE_SCHEDULE_PACKAGE_TIME_FAILED,
 			})
 		}
 	}

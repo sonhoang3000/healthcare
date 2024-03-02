@@ -29,6 +29,12 @@ class MedicalFacility extends Component {
 		}
 	}
 
+	handleMoreClinic = () => {
+		if (this.props.history) {
+			this.props.history.push(`/more-clinic`)
+		}
+	}
+
 	render() {
 		let settings = {
 			dots: false,
@@ -43,7 +49,9 @@ class MedicalFacility extends Component {
 				<div className="section-container">
 					<div className="section-header">
 						<span className="title-section">Cơ sở y tế</span>
-						<button className="btn-section">xem thêm</button>
+						<button
+							onClick={() => this.handleMoreClinic()}
+							className="btn-section">xem thêm</button>
 					</div>
 
 					<div className="section-body">

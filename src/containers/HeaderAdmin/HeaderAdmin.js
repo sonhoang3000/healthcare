@@ -36,7 +36,7 @@ class Header extends Component {
 
 
     render() {
-        const { processLogout, userInfo } = this.props;
+        const { processLogoutHeaderAdmin, userInfo } = this.props;
         return (
             <div className="header-container">
                 {/* thanh navigator */}
@@ -50,7 +50,7 @@ class Header extends Component {
                         {userInfo && userInfo.firstName ? userInfo.firstName : ''}
                     </span>
                     {/* {/* nút logout */}
-                    <div className="btn btn-logout" onClick={processLogout} title="Log out" >
+                    <div className="btn btn-logout" onClick={processLogoutHeaderAdmin} title="Log out" >
                         <i className="fas fa-sign-out-alt"></i>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        processLogout: () => dispatch(actions.processLogout()),
+        processLogoutHeaderAdmin: () => dispatch(actions.processLogout()),
     };
 };
 

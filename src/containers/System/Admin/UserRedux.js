@@ -44,6 +44,7 @@ class UserRedux extends Component {
         // hien tai (this) va qua khu (previous)
         // [] [3]
         // [3] [3]
+        // 
         if (prevProps.genderRedux !== this.props.genderRedux) {
             let arrGenders = this.props.genderRedux;
             this.setState({
@@ -200,7 +201,6 @@ class UserRedux extends Component {
         let genders = this.state.genderArr;
         let roles = this.state.roleArr;
         let positions = this.state.positionArr;
-        let isGetGenders = this.props.isLoadingGender;
 
         let {
             email, password, firstName, lastName, phoneNumber,
@@ -216,7 +216,6 @@ class UserRedux extends Component {
                     <div className="container">
                         <div className="row">
                             <div className='col-12 my-3'>Thêm mới người dùng</div>
-                            <div className='col-12 '> {isGetGenders === true ? 'Loading genders' : ''} </div>
 
                             <div className="col-3">
                                 <label> Email</label>
@@ -375,7 +374,6 @@ const mapStateToProps = state => {
         genderRedux: state.admin.genders,
         roleRedux: state.admin.roles,
         positionRedux: state.admin.positions,
-        isLoadingGender: state.admin.isLoadingGender,
         listUsers: state.admin.users
     };
 };

@@ -17,6 +17,14 @@ import HomePage from './HomePage/HomePage.js';
 import DetailDoctor from "./Patient/Doctor/DetailDoctor.js";
 import DetailSpecialty from "./Patient/Specialty/DetailSpecialty.js";
 import DetailClinic from "./Patient/Clinic/DetailClinic.js";
+
+import MoreDoctor from "./Patient/More/MoreDoctor"
+import MoreSpecialty from "./Patient/More/MoreSpecialty"
+import MoreClinic from "./Patient/More/MoreClinic"
+
+import MoreExaminationPackage from "./Patient/More/MoreExaminationPackage"
+import DetailPackage from "./Patient/MoreDetailPackage/DetailPackage";
+
 import VerifyEmail from "./Patient/VerifyEmail.js";
 class App extends Component {
 
@@ -55,6 +63,13 @@ class App extends Component {
 									<Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
 									<Route path={path.DETAIL_SPECIALTY} component={DetailSpecialty} />
 									<Route path={path.DETAIL_CLINIC} component={DetailClinic} />
+
+									<Route path={path.MORE_DOCTOR} component={MoreDoctor} />
+									<Route path={path.MORE_SPECIALTY} component={MoreSpecialty} />
+									<Route path={path.MORE_CLINIC} component={MoreClinic} />
+
+									<Route path={path.MORE_PACKAGE} component={MoreExaminationPackage} />
+									<Route path={path.DETAIL_PACKAGE} component={DetailPackage} />
 
 									<Route path={path.VERIFY_EMAIL_BOOK} component={VerifyEmail} />
 

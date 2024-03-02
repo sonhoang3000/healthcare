@@ -3,7 +3,7 @@
 	width: 100%;
 	padding: 0 40px;
 	position: sticky;
-	background-color: white;
+	background-color: rgba(237, 255, 250, 1.00);
 	top: 0;
 	z-index: 10000;
 
@@ -40,6 +40,7 @@
 
 
 			.child-content {
+				cursor: pointer;
 
 				.sub-title {
 					font-weight: 400;

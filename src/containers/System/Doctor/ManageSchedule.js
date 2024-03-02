@@ -128,6 +128,9 @@ class ManageSchedule extends Component {
 	}
 
 	render() {
+		console.log('check state', this.state)
+		console.log('check props', this.props)
+
 		let { rangeTime } = this.state;
 		let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
 		return (

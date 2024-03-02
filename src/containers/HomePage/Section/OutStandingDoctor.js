@@ -30,6 +30,12 @@ class OutStandingDoctor extends Component {
 		}
 	}
 
+	handleMoreDoctor = () => {
+		if (this.props.history) {
+			this.props.history.push(`/more-doctor`)
+		}
+	}
+
 	render() {
 		let arrDoctors = this.state.arrDoctors;
 
@@ -40,7 +46,9 @@ class OutStandingDoctor extends Component {
 						<span className="title-section">
 							Bác sĩ nổi bật
 						</span>
-						<button className="btn-section">
+						<button
+							onClick={() => this.handleMoreDoctor()}
+							className="btn-section">
 							xem thêm
 						</button>
 					</div>
