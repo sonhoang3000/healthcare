@@ -12,7 +12,7 @@ let handleLogin = async (req, res) => {
 	}
 
 	let userData = await userService.handleUserLogin(email, password);
-	console.log(userData);
+	console.log('check controller userData', userData);
 	// check mail exist
 	// compare password
 	// return userinfor
@@ -30,7 +30,7 @@ let handleGetAllUsers = async (req, res) => {
 	if (!id) {
 		return res.status(200).json({
 			errCode: 1,
-			errMessage: "Missing required parameters",
+			errMessage: "Missing required parameters user",
 			users: []
 		})
 	}

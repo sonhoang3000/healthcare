@@ -15,22 +15,22 @@ let hashUserPassword = (password) => {
 	});
 };
 
-let handleUserLogin = (email, password) => {
+let handleUserLogin = (emailInput, passwordInput) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			let userData = {};
-			let isExist = await checkUserEmail(email);
+			let isExist = await checkUserEmail(emailInput);
 			if (isExist) {
 				//user already exist
 
 				let user = await db.User.findOne({
 					attributes: ["id", "email", "roleId", "password", "firstName", "lastName"],
-					where: { email: email },
+					where: { email: emailInput },
 					raw: true,
 				});
 				if (user) {
 					//compare password
-					let check = await bcrypt.compareSync(password, user.password);
+					let check = await bcrypt.compareSync(passwordInput, user.password);
 					if (check) {
 						userData.errCode = 0;
 						userData.errMessage = "Okie nhe";
@@ -39,7 +39,7 @@ let handleUserLogin = (email, password) => {
 						userData.user = user;
 					} else {
 						userData.errCode = 3;
-						userData.errMessage = "Wrong password";
+						userData.errMessage = "Wrong password login";
 					}
 				} else {
 					userData.errCode = 2;
@@ -78,7 +78,7 @@ let checkUserEmail = (userEmail) => {
 let getAllUsers = (userId) => {
 	return new Promise(async (resolve, reject) => {
 		try {
-			let users = 'abcxyz';
+			let users = '';
 			if (userId === 'ALL') {
 				users = await db.User.findAll({
 					attributes: {
@@ -114,7 +114,6 @@ let createNewUserService = (data) => {
 					errMessage: "Your email is already used, Please try another email!"
 				});
 			} else {
-				console.log('check create user service', data)
 				let hashPasswordFromBcrypt = await hashUserPassword(data.password);
 				await db.User.create({
 					email: data.email,

@@ -233,6 +233,8 @@ let bulkCreateSchedule = (data) => {
 					})
 				}
 
+				console.log('check schedule', schedule)
+
 				// get all existing data 
 				let existing = await db.Schedule.findAll(
 					{
@@ -241,6 +243,9 @@ let bulkCreateSchedule = (data) => {
 						raw: true
 					}
 				);
+
+				console.log('checl existing ', existing)
+
 
 				//compare differenceWith
 				let toCreate = _.differenceWith(schedule, existing, (a, b) => {
@@ -253,6 +258,7 @@ let bulkCreateSchedule = (data) => {
 
 				}
 
+				console.log('check toCreate', toCreate)
 
 				resolve({
 					errCode: 0,
@@ -282,9 +288,7 @@ let getScheduleByDate = (doctorId, date) => {
 					},
 					include: [
 						{ model: db.Allcode, as: 'timeTypeData', attributes: ['valueEn', 'valueVi'] },
-
 						{ model: db.User, as: 'doctorData', attributes: ['firstName', 'lastName'] },
-
 					],
 					raw: false,
 					nest: true
