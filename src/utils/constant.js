@@ -16,6 +16,8 @@ export const path = {
 
     MORE_PACKAGE: "/more-package",
 
+    HISTORY_PATIENT: "/history-patient",
+
     VERIFY_EMAIL_BOOK: '/verify-booking'
 };
 
@@ -31,14 +33,6 @@ export const CRUD_ACTIONS = {
     READ: "READ"
 };
 
-export const dateFormat = {
-    SEND_TO_SERVER: 'DD/MM/YYYY'
-};
-
-export const YesNoObj = {
-    YES: 'Y',
-    NO: 'N'
-}
 
 export const USER_ROLE = {
     ADMIN: "R1",

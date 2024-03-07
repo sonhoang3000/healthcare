@@ -22,6 +22,8 @@ import MoreDoctor from "./Patient/More/MoreDoctor"
 import MoreSpecialty from "./Patient/More/MoreSpecialty"
 import MoreClinic from "./Patient/More/MoreClinic"
 
+import HistoryPatient from "./Patient/HistoryPatient/HistoryPatient"
+
 import VerifyEmail from "./Patient/VerifyEmail.js";
 class App extends Component {
 
@@ -64,6 +66,8 @@ class App extends Component {
 									<Route path={path.MORE_DOCTOR} component={MoreDoctor} />
 									<Route path={path.MORE_SPECIALTY} component={MoreSpecialty} />
 									<Route path={path.MORE_CLINIC} component={MoreClinic} />
+
+									<Route path={path.HISTORY_PATIENT} component={HistoryPatient} />
 
 									<Route path={path.VERIFY_EMAIL_BOOK} component={VerifyEmail} />
 

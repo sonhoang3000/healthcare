@@ -1,11 +1,11 @@
 .home-header-container {
 	height: 60px;
 	width: 100%;
-	padding: 0 40px;
+	padding-left: 40px;
 	position: sticky;
 	background-color: rgba(237, 255, 250, 1.00);
 	top: 0;
-	z-index: 10000;
+	z-index: 1001;
 
 	.home-header-content {
 		width: 100%;
@@ -57,52 +57,43 @@
 			align-items: center;
 			justify-content: flex-end;
 
+			.history-patient {
+				width: 65%;
+				text-align: center;
+				border: 1px solid #c09a9a;
+				margin: 0 30px;
+				cursor: pointer;
+				font-size: 16px;
+				font-weight: 600;
+				opacity: 0.7;
+				color: red;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+
 			.support {
 				display: flex;
 				align-items: center;
-				padding-right: 50px;
+				margin-right: 20px;
 				cursor: pointer;
+				width: 35%;
+				border: 1px solid #1f1f70;
+				color: #1227d6;
+				opacity: 0.8;
 
 				i {
 					font-size: 15px;
 					margin-right: 5px;
 				}
-			}
-
-			.language-vi {
-				cursor: pointer;
-				opacity: 0.3;
-
-				&.active {
-					opacity: 1;
-
-					span {
-						color: red;
-					}
-				}
 
 				&:hover {
-					opacity: 0.8;
-				}
-			}
-
-			.language-en {
-				margin: 0 10px;
-				cursor: pointer;
-				opacity: 0.3;
-
-				&.active {
 					opacity: 1;
-
-					span {
-						color: blue;
-					}
-				}
-
-				&:hover {
-					opacity: 0.8;
 				}
 			}
+
 		}
 
 	}

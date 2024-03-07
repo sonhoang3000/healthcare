@@ -30,7 +30,11 @@ class HomeHeader extends Component {
 		}
 	}
 
-
+	handleHistoryPaitent = () => {
+		if (this.props.history) {
+			this.props.history.push(`/history-patient`)
+		}
+	}
 	render() {
 		return (
 			<React.Fragment>
@@ -59,7 +63,16 @@ class HomeHeader extends Component {
 							</div>
 						</div>
 						<div className="right-content">
-							<div className="support"><i className="fas fa-question-circle"></i>Hỗ trợ </div>
+							<div className="history-patient right-ct"
+								onClick={() => this.handleHistoryPaitent()}
+							>
+								Tra lịch sử bệnh án
+							</div>
+
+
+							<div className="support left-ct"><i className="fas fa-question-circle"></i>
+								Hỗ trợ
+							</div>
 						</div>
 					</div>
 				</div>

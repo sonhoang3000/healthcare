@@ -31,13 +31,23 @@ class DetailClinic extends Component {
 			if (res && res.errCode === 0) {
 				let data = res.data;
 				let arrDoctorId = [];
-				if (data && !_.isEmpty(res.data)) {
-					let arr = data;
-					if (arr && arr.length > 0) {
-						arr.forEach(item => {
-							arrDoctorId.push(item.doctorId)
-						})
+				// if (data && !_.isEmpty(res.data)) {
+				// 	let arr = data.doctorClinic;
+				// 	if (arr && arr.length > 0) {
+				// 		arr.forEach(item => {
+				// 			arrDoctorId.push(item.doctorId)
+				// 		})
 
+				// 	}
+				// }
+
+				if (data && !_.isEmpty(res.data)) {
+					let arr = data.doctorClinic;
+
+					if (arr && arr.length > 0) {
+						for (let i = 0; i < arr.length; i++) {
+							arrDoctorId[i] = arr[i].doctorId;
+						}
 					}
 				}
 

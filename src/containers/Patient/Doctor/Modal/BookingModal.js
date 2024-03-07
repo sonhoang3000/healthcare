@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import './BookingModal.scss';
 import { Modal } from 'reactstrap';
-import ProfileDoctor from '../ProfileDoctor';
-import _ from 'lodash';
-import DatePicker from '../../../../components/Input/DatePicker';
-import * as actions from '../../../../store/actions'
-import Select from 'react-select';
-import { postPatientBookingAppointment } from '../../../../services/userService';
-import { toast } from 'react-toastify';
 import moment from 'moment';
+import { toast } from 'react-toastify';
+import _ from 'lodash';
+import Select from 'react-select';
+
+import * as actions from '../../../../store/actions'
+import ProfileDoctor from '../ProfileDoctor';
+import DatePicker from '../../../../components/Input/DatePicker';
+import { postPatientBookingAppointment } from '../../../../services/userService';
 
 class BookingModal extends Component {
 
@@ -77,6 +78,7 @@ class BookingModal extends Component {
 	}
 
 	handleOnChangeDatePicker = (date) => {
+		console.log('check date', date)
 		this.setState({
 			birthday: date[0]
 		})
@@ -113,12 +115,12 @@ class BookingModal extends Component {
 	handleConfirmBooking = async () => {
 
 		let date = new Date(this.state.birthday).getTime();
-		let timeString = this.buildTimeBooking(this.props.dataTime);
+		let timeStringModal = this.buildTimeBooking(this.props.dataTime);
 		let doctorName = this.buildDoctorName(this.props.dataTime);
 
 		let res = await postPatientBookingAppointment({
 			fullName: this.state.fullName,
-			phoneNumber: this.state.fullName,
+			phoneNumber: this.state.phoneNumber,
 			email: this.state.email,
 			address: this.state.address,
 			reason: this.state.reason,
@@ -127,7 +129,7 @@ class BookingModal extends Component {
 			selectedGender: this.state.selectedGender.value,
 			doctorId: this.state.doctorId,
 			timeType: this.state.timeType,
-			timeString: timeString,
+			timeStringService: timeStringModal,
 			doctorName: doctorName
 		})
 
@@ -147,6 +149,7 @@ class BookingModal extends Component {
 			doctorId = dataTime.doctorId
 		}
 
+		console.log('check state', this.state)
 		return (
 			<Modal
 				isOpen={isOpenModal}
@@ -157,7 +160,8 @@ class BookingModal extends Component {
 				<div className='booking-modal-content'>
 					<div className='booking-modal-header'>
 						<span className='left'>
-							Thông tin đặt lịch khám bệnh"						</span>
+							Thông tin đặt lịch khám bệnh
+						</span>
 						<span
 							className='right'
 							onClick={closeBookingModal}
@@ -206,7 +210,7 @@ class BookingModal extends Component {
 							</div>
 
 							<div className='col-12 form-group'>
-								<label>Lý do khám"</label>
+								<label>Lý do khám</label>
 								<input className='form-control'
 									value={this.state.reason}
 									onChange={(event) => this.handleOnChangeInput(event, 'reason')}
@@ -214,7 +218,7 @@ class BookingModal extends Component {
 							</div>
 
 							<div className='col-6 form-group'>
-								<label>Ngày sinh"</label>
+								<label>Ngày sinh</label>
 								<DatePicker
 									onChange={this.handleOnChangeDatePicker}
 									className="form-control"

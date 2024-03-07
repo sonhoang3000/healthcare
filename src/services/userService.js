@@ -68,7 +68,7 @@ const postPatientBookingAppointment = (data) => {
 }
 
 const postVerifyBookAppointment = (data) => {
-  return axios.post('/api/verify-book-appointment', data)
+  return axios.post('/api/verify-book-appointment', data);
 }
 
 const createNewSpecialty = (data) => {
@@ -79,7 +79,7 @@ const getAllSpecialty = () => {
   return axios.get(`/api/get-specialty`)
 }
 
-const getAllClinic = (data) => {
+const getAllClinic = () => {
   return axios.get(`/api/get-clinic`)
 }
 

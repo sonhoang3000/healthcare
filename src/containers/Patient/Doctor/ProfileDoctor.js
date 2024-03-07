@@ -65,6 +65,7 @@ class ProfileDoctor extends Component {
 			doctorId
 		} = this.props
 
+
 		let nameVi = '';
 		if (dataProfile && dataProfile.positionData) {
 			nameVi = `${dataProfile.positionData.valueVi}, ${dataProfile.lastName} ${dataProfile.firstName} `;
