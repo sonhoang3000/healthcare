@@ -30,7 +30,7 @@ let createClinic = (data) => {
       })
 }
 
-let getAllClinic = (data) => {
+let getAllClinicService = () => {
       return new Promise(async (resolve, reject) => {
             try {
                   let data = await db.Clinic.findAll({
@@ -44,7 +44,7 @@ let getAllClinic = (data) => {
                         })
                   }
                   resolve({
-                        errMessage: 'OK',
+                        errMessage: 'OK CLINIC',
                         errCode: 0,
                         data
                   })
@@ -93,6 +93,6 @@ let getDetailClinicById = (inputId) => {
 }
 module.exports = {
       createClinic: createClinic,
-      getAllClinic: getAllClinic,
+      getAllClinicService: getAllClinicService,
       getDetailClinicById: getDetailClinicById
 }

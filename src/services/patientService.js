@@ -26,7 +26,7 @@ let postBookAppointment = (data) => {
 				await emailService.sendSimpleEmail({
 					reciversEmail: data.email,
 					patientName: data.fullName,
-					time: data.timeString,
+					time: data.timeStringService,
 					doctorName: data.doctorName,
 					redirectLink: buildUrlEmail(data.doctorId, token)
 				})
