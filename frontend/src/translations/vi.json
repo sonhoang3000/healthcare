@@ -1,0 +1,24 @@
+{
+    "menu": {
+        "admin" : {
+            "manage-user" : "Người dùng",
+            "manage-doctor": "Quản lý bác sĩ",
+            "manage-admin": "Quản lý admin",
+            "crud": "Quản lý người dùng",
+            "crud-redux": "Thêm mới người dùng",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lý phòng khám",
+            "specialty":"Chuyên khoa",
+            "manage-specialty":"Quản lý chuyên khoa",
+            "handbook":"Cẩm nang",
+            "manage-handbook":"Quản lý cẩm nang",
+            "package": "Gói khám",
+            "manage-package": "Quản lý gói khám",
+            "manage-schedule-package": "Quản lý kế hoạch khám bệnh của gói dịch vụ"
+       },
+       "doctor" : {
+            "manage-schedule": "Quản lý kế hoạch khám bệnh ",
+            "manage-patient": "Quản lý bệnh nhân khám bệnh "
+       }
+    }
+}

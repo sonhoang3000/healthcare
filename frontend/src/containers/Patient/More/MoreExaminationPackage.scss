@@ -1,0 +1,88 @@
+.display-more-package {
+
+      margin: 30px 100px;
+
+      .title-home {
+            display: flex;
+            margin-bottom: 20px;
+
+            .color-i {
+                  color: #2de2e6;
+                  margin: 0 4px;
+                  cursor: pointer;
+                  font-size: 20px;
+
+                  i {
+                        margin: 0 4px;
+                  }
+            }
+
+            p {
+                  font-size: 20px;
+            }
+      }
+
+      .title-package {
+            font-weight: 600;
+            font-size: 22px;
+      }
+
+      .package-container {
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+
+            .col-3 {
+                  padding: 0;
+                  margin: 0;
+                  width: 50px !important;
+            }
+
+            .package-child {
+                  cursor: pointer;
+                  border: 1px solid #e8d7d7;
+                  margin-right: 20px;
+                  box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px;
+                  margin-bottom: 20px;
+
+                  .bg-image {
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        height: 200px !important;
+                  }
+
+                  .package-name {
+                        text-align: center;
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: rgb(26, 26, 26);
+                        margin-bottom: 20px;
+
+                        &:hover {
+                              color: #45c3d2
+                        }
+                  }
+
+                  .package-price {
+                        display: flex;
+                        font-size: 16px;
+                        width: 100%;
+                        padding: 10px;
+                        border-top: 1px solid #a69a9a;
+
+                        .display-left {
+                              width: 30%;
+                        }
+
+                        .display-right {
+                              width: 70%;
+                              text-align: end;
+                              font-weight: 600;
+                        }
+                  }
+            }
+
+
+      }
+}

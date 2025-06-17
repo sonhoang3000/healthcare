@@ -1,0 +1,109 @@
+.more-list {
+
+      margin: 30px 100px;
+
+      .title-home {
+            display: flex;
+            margin-bottom: 20px;
+
+            .color-i {
+                  color: #2de2e6;
+                  margin: 0 4px;
+                  cursor: pointer;
+                  font-size: 20px;
+
+                  i {
+                        margin: 0 4px;
+                  }
+            }
+
+            p {
+                  font-size: 20px;
+            }
+      }
+
+      .display-specialty {
+            cursor: pointer;
+
+            p {
+                  font-size: 22px;
+                  font-weight: 600;
+            }
+
+            .section-customize {
+                  display: flex;
+                  border-bottom: 1px solid #665151;
+
+                  .customize-border {
+                        display: flex;
+
+                        .doctor-name {
+                              font-size: 18px;
+                              font-weight: 500;
+                              margin: 70px 0;
+                        }
+                  }
+
+                  .bg-image {
+                        width: 250px;
+                        height: 125px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        margin: 8px 10px;
+                  }
+
+                  .section-outstanding-doctor {
+                        width: 150px !important;
+                        height: 150px !important;
+                  }
+
+                  .specialty-name {
+                        font-size: 20px;
+                        font-weight: 500;
+
+                  }
+            }
+      }
+
+      .p-clinic {
+            font-weight: 600;
+            font-size: 22px;
+            margin-bottom: 20px;
+      }
+
+      .display-clinic {
+            display: flex;
+
+
+            .clinic-child-more {
+                  cursor: pointer;
+                  margin-bottom: 10px;
+
+                  .bg-image {
+                        width: 350px;
+                        height: 225px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        border: 1px solid #726969;
+                        border-radius: 5px;
+                  }
+
+                  .clinic-name {
+                        font-size: 18px;
+                        font-weight: 600;
+                        color: rgb(26, 26, 26);
+                        text-align: center;
+                        margin-right: 40px;
+
+                        &:hover {
+                              color: #45c3d2
+                        }
+                  }
+            }
+
+      }
+
+
+}

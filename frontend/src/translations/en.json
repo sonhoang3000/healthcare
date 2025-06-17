@@ -1,0 +1,21 @@
+{
+    "menu": {
+        "admin" : {
+            "manage-user" : "Users system",
+            "manage-doctor": "Manage doctors",
+            "manage-admin": "Manage admins",
+            "crud": "CRUD user",
+            "crud-redux": "CRUD Redux",
+            "clinic": "Clinics",
+            "manage-clinic": "Manage clinics",
+            "specialty": "Specialties",
+            "manage-specialty": "Manage specialties",
+            "handbook": "Handbook",
+            "manage-handbook": "Manage handbook"
+       },
+       "doctor" : {
+            "manage-schedule": "Manage Doctor's schedule",
+            "manage-patient": "Manage Doctor's patient"
+        }
+    }
+}

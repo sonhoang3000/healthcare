@@ -1,0 +1,35 @@
+.history-patient-container {
+
+      .exit-click {
+            margin: 0;
+            float: right;
+            text-align: end;
+            font-size: 20px;
+            margin-left: 455px;
+            cursor: pointer;
+            padding: 2px 20px
+      }
+
+      margin: 20px auto;
+      width: 500px;
+      border-radius: 10px;
+      background: #ffdf00;
+      height: 270px;
+      display: flex;
+
+      .title {
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+      }
+
+
+      .infor-input {
+            margin: 0;
+            // padding: 0;
+      }
+
+      .fullname-input {
+            margin-bottom: 10px;
+      }
+}
